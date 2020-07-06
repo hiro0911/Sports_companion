@@ -1,0 +1,2 @@
+class TeamComment < ApplicationRecord
+end

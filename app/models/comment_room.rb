@@ -1,0 +1,2 @@
+class CommentRoom < ApplicationRecord
+end

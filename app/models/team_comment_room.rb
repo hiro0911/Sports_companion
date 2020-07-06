@@ -1,0 +1,2 @@
+class TeamCommentRoom < ApplicationRecord
+end

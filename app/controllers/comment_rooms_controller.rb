@@ -1,0 +1,2 @@
+class CommentRoomsController < ApplicationController
+end
