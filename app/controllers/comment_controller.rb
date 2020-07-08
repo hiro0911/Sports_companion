@@ -2,7 +2,7 @@ class CommentController < ApplicationController
 	def index
 		@sport = Sport.find(params[:id])
 		@comment = Comment.new
-		@comments = Comment.where
+		@comments = Comment.all
 	end
 	def create
 		@comment = current_user.comments.new(comment_params)

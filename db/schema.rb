@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_07_220251) do
+ActiveRecord::Schema.define(version: 2020_07_08_125124) do
 
   create_table "comment_rooms", force: :cascade do |t|
     t.integer "sport_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title", null: false
     t.index ["sport_id"], name: "index_comment_rooms_on_sport_id"
   end
 
@@ -40,6 +41,7 @@ ActiveRecord::Schema.define(version: 2020_07_07_220251) do
     t.integer "team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title", null: false
     t.index ["team_id"], name: "index_team_comment_rooms_on_team_id"
   end
 
