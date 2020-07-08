@@ -1,0 +1,12 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<h3>このページはサッカーに関してコメントするページです。</h3>
+			<h3>思い思いのことをコメントしましょう！</h3>
+			<%= form_for @comment do |f| %>
+			<%= f.text_area :comment %>
+			<%= f.submit "コメントする" class: "btn btn-primary" %>		
+			<%= @comments %>
+		</div>
+	</div>
+</div>

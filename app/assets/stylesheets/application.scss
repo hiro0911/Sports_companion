@@ -13,3 +13,29 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+*{
+	margin: 0;
+	padding: 0;
+}
+.header-table{
+	line-height: 80px;
+}
+.sign-up-title, .sign-in-title{
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+.btn-sign-up{
+	width: 200px;
+	margin-top: 50px;
+	margin-left: 100px;
+	margin-bottom: 100px;
+}
+.btn-sign-in{
+	width: 200px;
+	margin-left: 60px;
+	margin-bottom: 50px;
+}

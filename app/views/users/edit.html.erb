@@ -1,0 +1,43 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-10">
+			<h3>ユーザー詳細ページ</h3>
+			<table class="table">
+				<h3>登録情報</h3>
+				<%= form_for @user do |f| %>
+				<tr>
+					<th><%= f.label :name, "ニックネーム" %></th>
+					<td><%= f.text_field :name %></td>
+				</tr>
+				<tr>
+					<th><%= f.label :email, "メールアドレス" %></th>
+					<td><%= f.text_field :email %></td>
+				</tr>
+				<tr>
+					<th><%= f.label :age, "年齢" %></th>
+					<td><%= f.text_field :age %></td>
+				</tr>
+				<tr>
+					<th><%= f.label :sex, "性別" %></th>
+					<td><%= f.select :sex, User.sexes.keys, include_blank: "--選択してください--" %></td>
+				</tr>
+				<tr>
+					<th><%= f.label :introduction, "自己紹介" %></th>
+					<td><%= f.text_area :introduction %></td>
+				</tr>
+			</table>
+			<%= f.submit "変更を保存する", class: "btn btn-primary"  %>
+			<% end %>
+			<table class="table">
+				<tr>
+					<th>マイチーム</th>
+					<td></td>
+				</tr>
+			</table>
+			<!-- あとで修正 -->
+			<%= link_to "チームを抜ける", team_member_path, method: :delete, class: "btn btn-danger" %>
+			<%= link_to "退会する", users_quit_path, class: "btn btn-danger" %>
+			<%= link_to "戻る", user_path(current_user), class: "btn btn-info" %>
+		</div>
+	</div>
+</div>

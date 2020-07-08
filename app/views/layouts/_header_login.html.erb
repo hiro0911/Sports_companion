@@ -1,0 +1,19 @@
+<div class="header">
+	<div class="container">
+		<div class="row header-contents">
+			<div class="col-xs-2">
+				<%= image_tag "header-logo.jpg", size: "250x80" %>
+			</div>
+			<div class="col-xs-2"></div>
+			<div class="col-xs-8">
+				<table class="table header-table">
+					<td class="header-wellcome">ようこそ<%= current_user.name %>さん！</td>
+					<td><%= link_to "about", about_path, class: "btn btn-primary" %></td>
+					<td><%= link_to "マイページ", user_path(current_user), class: "btn btn-primary" %></td>
+					<td><%= link_to "マイチーム", team_path(current_user.team_members), class: "btn btn-primary" %></td>
+					<td><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-primary" %></td>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

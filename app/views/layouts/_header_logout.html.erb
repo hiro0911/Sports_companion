@@ -1,0 +1,17 @@
+<div class="header">
+	<div class="container">
+		<div class="row header-contents">
+				<div class="col-xs-2">
+					<%= image_tag "header-logo.jpg", size: "250x80" %>
+				</div>
+				<div class="col-xs-2 header-block"></div>
+				<div class="col-xs-8">
+					<table class="table header-table">
+						<td><%= link_to "about", about_path, class: "btn btn-primary" %></td>
+						<td><%= link_to "ログイン", new_user_session_path, class: "btn btn-primary" %></td>
+						<td><%= link_to "新規登録", new_user_registration_path, class: "btn btn-primary" %></td>
+					</table>
+			</div>
+		</div>
+	</div>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_06_023727) do
+ActiveRecord::Schema.define(version: 2020_07_07_220251) do
 
   create_table "comment_rooms", force: :cascade do |t|
     t.integer "sport_id"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2020_07_06_023727) do
     t.string "sport_genre", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_id"
   end
 
   create_table "team_comment_rooms", force: :cascade do |t|
@@ -83,6 +84,7 @@ ActiveRecord::Schema.define(version: 2020_07_06_023727) do
     t.integer "sex"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "introduction"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

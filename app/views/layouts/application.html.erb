@@ -10,6 +10,11 @@
   </head>
 
   <body>
+    <% if user_signed_in? %> <!-- ユーザーのログイン状況によりヘッダーを変更 -->
+    <%= render "layouts/header_login" %>
+    <% else %>
+    <%= render "layouts/header_logout" %>
+    <% end %>
     <%= yield %>
   </body>
 </html>

@@ -13,12 +13,12 @@ Rails.application.routes.draw do
   get "teams/prefectures", to: "teams#prefectures" # 都道府県選択画面
   get "teams/information", to: "teams#information" # 連絡事項編集画面
 
-  resources :team_members, only: [:index, :new, :create]
+  resources :team_members, only: [:index, :new, :create, :destroy]
   get "team_members/thanks", to: "team_members#thanks" # チーム加入確定画面
 
   resources :sports, only: [:index]
   resources :comment_rooms, only: [:create]
-  resources :comments, only: [:show, :create]
+  resources :comments, only: [:index, :create]
   resources :team_comment_rooms, only: [:create]
-  resources :team_comments, only: [:show, :create]
+  resources :team_comments, only: [:index, :create]
 end
