@@ -1,0 +1,20 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-10">
+			<h3>ジャンル：<%= @comment_room.sport.sport_genre %></h3>
+			<h3>ルームタイトル：<%= @comment_room.title %></h3>
+			<%= form_with model:@comment, url:comments_path,  method: :post, local: true do |f| %>
+			<%= f.text_area :sentence %>
+			<%= f.hidden_field :comment_room_id, :value => @comment_room.id %>
+			<%= f.submit "コメントする", class: "btn btn-primary" %>
+			<% end %>
+		<table class="table">
+			<%= @comments.each do |c| %>
+			<%= c.user.name %>
+			<%= c.sentence %>
+			<%= c.created_at.strftime("%Y/%m/%d") %>
+			<% end %>
+		</table>
+	  </div>
+	</div>
+</div>

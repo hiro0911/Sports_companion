@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_08_125124) do
+ActiveRecord::Schema.define(version: 2020_07_09_070217) do
 
   create_table "comment_rooms", force: :cascade do |t|
     t.integer "sport_id"
@@ -22,11 +22,11 @@ ActiveRecord::Schema.define(version: 2020_07_08_125124) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "room_id"
-    t.text "comment", null: false
+    t.integer "comment_room_id"
+    t.text "sentence"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["room_id"], name: "index_comments_on_room_id"
+    t.index ["comment_room_id"], name: "index_comments_on_comment_room_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 

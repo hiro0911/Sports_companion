@@ -4,6 +4,9 @@ class CommentRoomsController < ApplicationController
 		@comment_rooms = CommentRoom.where(sport_id: @sport.id) 
 	end
 	def show
+		@comment_room = CommentRoom.find(params[:id])
+		@comment = Comment.new
+		@comments = Comment.where(comment_room_id: @comment_room.id)
 	end
 	def new
 		@comment_room = CommentRoom.new
