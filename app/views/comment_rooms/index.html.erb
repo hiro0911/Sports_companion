@@ -7,9 +7,14 @@
 			<%= link_to "コメントルーム新規作成", "/sports/comment_rooms/new/#{@sport.id}", class: "btn btn-primary" %>		
 		</div>
 		<div class="col-xs-6">
-			<%= @comment_rooms.each do |room| %>
-			<%= link_to room.title, comment_room_path(room)  %>
+			<table class="table">
+		  <% @comment_rooms.each do |room| %>
+			<tr>
+			<td><%= link_to room.title, comment_room_path(room)  %></td>
+	  	</tr>
 			<% end %>
+		</table>
+		</div>
 		</div>
 	</div>
 </div>

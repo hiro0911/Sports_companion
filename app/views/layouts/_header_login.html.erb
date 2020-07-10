@@ -10,7 +10,7 @@
 					<td class="header-wellcome">ようこそ<%= current_user.name %>さん！</td>
 					<td><%= link_to "about", about_path, class: "btn btn-primary" %></td>
 					<td><%= link_to "マイページ", user_path(current_user), class: "btn btn-primary" %></td>
-					<td><%= link_to "マイチーム", team_path(current_user.team_members), class: "btn btn-primary" %></td>
+					<td><%= link_to "マイチーム", root_path, class: "btn btn-primary" %></td>
 					<td><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-primary" %></td>
 				</table>
 			</div>

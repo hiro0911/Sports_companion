@@ -9,10 +9,6 @@ Rails.application.routes.draw do
   get "users/quit", to: "users#quit" # 退会画面
   delete "users/out", to: "users#out" # 退会する
 
-  resources :teams
-  get "teams/prefectures", to: "teams#prefectures" # 都道府県選択画面
-  get "teams/information", to: "teams#information" # 連絡事項編集画面
-
   resources :team_members, only: [:index, :new, :create, :destroy]
   get "team_members/thanks", to: "team_members#thanks" # チーム加入確定画面
 
@@ -25,10 +21,20 @@ Rails.application.routes.draw do
 
   resources :comments, only: [:create]
   
+  resources :teams, except: [:index, :new, :create]
+  get "teams/information", to: "teams#information" # 連絡事項編集画面
+
   resources :team_comment_rooms, only: [:show]
   get "sports/team_comment_rooms/:id", to: "team_comment_rooms#index"
   get "sports/team_comment_rooms/new/:id", to: "team_comment_rooms#new"
   post "sports/team_comment_rooms/create/:id", to: "team_comment_rooms#create"
+	  
+
+  resources :prefectures, only: [:index] do
+	  resources :sports, only: [:index] do
+	  	 resources :teams, only: [:index, :new, :create]
+	  end
+	end
   
   resources :team_comments, only: [:create]
 end

@@ -9,10 +9,12 @@
 			<%= f.submit "コメントする", class: "btn btn-primary" %>
 			<% end %>
 		<table class="table">
-			<%= @comments.each do |c| %>
-			<%= c.user.name %>
-			<%= c.sentence %>
-			<%= c.created_at.strftime("%Y/%m/%d") %>
+			<% @comments.each do |c| %>
+			<tr>
+			<td><%= c.user.name %></td>
+			<td><%= c.sentence %></td>
+			<td><%= c.created_at.strftime('%Y年 %m月 %d日 %H時 %M分 %S秒')%></td>
+		  </tr>
 			<% end %>
 		</table>
 	  </div>

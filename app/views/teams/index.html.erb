@@ -1,0 +1,34 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-8">
+			<h3><%= @prefecture.content %></h3>		
+			<h3><%= @sport.sport_genre %></h3>
+			<h3>チームメンバー募集一覧</h3>
+			<%= link_to "新規チーム作成", new_prefecture_sport_team_path, class: "btn btn-primary" %>
+						<% @teams.each do |team| %>
+						<table class="table">
+						<%= link_to team_path(team) do %>
+						<%= attachment_image_tag team, :image, size: "300x200", fallback: "no_image.png", size: "300x200" %>
+						<% end %>
+					<tr>
+				   	<td>チーム名</td>
+				   	<td><%= team.team_name %></td>
+				  </tr>
+				  <tr>
+				  	<td>活動地域</td>
+				  	<td><%= team.area %></td>
+				  </tr>
+				  <tr>
+				  	<td>募集人数</td>
+				  	<td><%= team.applicant %></td>
+				  </tr>
+				  <tr>
+				  	<td>活動スタンス</td>
+				  	<td><%= team.stance %></td>
+				  </tr>
+				  </table>
+				<% end %>
+			
+		</div>
+	</div>
+</div>

@@ -23,3 +23,6 @@ Sport.create!(
 Sport.create!(
 	sport_genre: "ランニング"
 )
+47.times do |n|
+  Prefecture.create!(content: n + 1)
+end

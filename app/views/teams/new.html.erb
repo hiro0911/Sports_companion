@@ -1,0 +1,42 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-8">
+			<h3>チーム新規作成</h3>
+			<table class="table">
+			<tr>
+			<%= form_for @team, url: "/prefectures/#{params[:prefecture_id]}/sports/#{params[:sport_id]}/teams" do |f| %>
+			<td><%= attachment_image_tag @team, :image, :fill, 300, 300, fallback: "no_image.png", size: "300x300" %></td>
+			</tr>
+			<tr>
+			<td><%= f.attachment_field :image %></td>
+			</tr>
+		</table>
+		<table class="table">
+			<tr>
+				<td><%= f.label :team_name, "チーム名" %></td>
+				<td><%= f.text_field :team_name  %></td>	
+			</tr>
+			<tr>
+				<td><%= f.label :area, "活動地域（市区町村）" %></td>
+				<td><%= f.text_field :area %></td>
+			</tr>
+			<tr>
+				<td><%= f.label :applicant, "募集人数（半角数字）" %></td>
+				<td><%= f.text_field :applicant %>人</td>
+			</tr>
+			<tr>
+				<td><%= f.label :stance, "活動スタンス（本気や楽しくやろう等）" %></td>
+				<td><%= f.text_field :stance %></td>
+			</tr>
+			<tr>
+				<td><%= f.label :explanation, "チーム説明（入力情報はあとから編集できます）" %></td>
+				<td><%= f.text_area :explanation %></td>
+			</tr>
+		</table>
+		<%= f.hidden_field :sport_id, :value => params[:sport_id] %>
+		<%= f.hidden_field :prefecture_id, :value => params[:prefecture_id] %>
+		<%= f.submit "確定する", class: "btn btn-success btn-lg" %>
+		<% end %>
+		</div>
+	</div>
+</div>

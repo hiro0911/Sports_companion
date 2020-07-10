@@ -1,12 +1,23 @@
+<% unless "/prefectures/:id/sports" %>
+いえす
+<% end %>
+
 <div class="container">
 	<div class="row">
 		<div class="col-xs-12">
 			<h3>スポーツを選択してください</h3>
 			<% @sports.each do |sport| %>
 			<div class="col-xs-4">
+				<% unless params[:prefecture_id] %>
 				<%= link_to "/sports/comment_rooms/#{sport.id}" do %>
 				<%= attachment_image_tag sport, :image_id, :fill, 100, 200, fallback: "no_image.png", size: "200x100" %>
 				<%= sport.sport_genre %>
+				<% end %>
+				<% else %>
+				<%= link_to prefecture_sport_teams_path(sport_id: sport.id) do %>
+				<%= attachment_image_tag sport, :image_id, :fill, 100, 200, fallback: "no_image.png", size: "200x100" %>
+				<%= sport.sport_genre %>
+				<% end %>
 				<% end %>
 			</div>
 			<% end %>
