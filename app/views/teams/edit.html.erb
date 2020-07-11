@@ -1,0 +1,40 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-8">
+			<h3>チーム詳細編集</h3>
+			<table class="table">
+			<tr>
+			<%= form_for @team do |f| %>
+			<td><%= attachment_image_tag @team, :image, :fill, 300, 300, fallback: "no_image.png", size: "300x300" %></td>
+			</tr>
+			<tr>
+			<td><%= f.attachment_field :image %></td>
+			</tr>
+		</table>
+		<table class="table">
+			<tr>
+				<td><%= f.label :team_name, "チーム名" %></td>
+				<td><%= f.text_field :team_name  %></td>	
+			</tr>
+			<tr>
+				<td><%= f.label :area, "活動地域（市区町村）" %></td>
+				<td><%= f.text_field :area %></td>
+			</tr>
+			<tr>
+				<td><%= f.label :applicant, "募集人数（半角数字）" %></td>
+				<td><%= f.text_field :applicant %>人</td>
+			</tr>
+			<tr>
+				<td><%= f.label :stance, "活動スタンス（本気や楽しくやろう等）" %></td>
+				<td><%= f.text_field :stance %></td>
+			</tr>
+			<tr>
+				<td><%= f.label :explanation, "チーム説明" %></td>
+				<td><%= f.text_area :explanation %></td>
+			</tr>
+		</table>
+		<%= f.submit "変更を保存", class: "btn btn-primary btn-lg" %>
+		<% end %>
+		</div>
+	</div>
+</div>

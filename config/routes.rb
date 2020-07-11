@@ -25,9 +25,6 @@ Rails.application.routes.draw do
   get "teams/information", to: "teams#information" # 連絡事項編集画面
 
   resources :team_comment_rooms, only: [:show]
-  get "sports/team_comment_rooms/:id", to: "team_comment_rooms#index"
-  get "sports/team_comment_rooms/new/:id", to: "team_comment_rooms#new"
-  post "sports/team_comment_rooms/create/:id", to: "team_comment_rooms#create"
 	  
 
   resources :prefectures, only: [:index] do

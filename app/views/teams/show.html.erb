@@ -1,0 +1,36 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-10">
+			<h3>チームメンバー募集詳細</h3>
+			<%= attachment_image_tag @team, :image, size: "300x300", fallback: "no_image.png", size: "300x300" %>
+			<div></div>
+			<%= link_to "編集", edit_team_path(@team), class: "btn btn-primary" %>
+			<table class="table">
+				<tr>
+					<td>チーム名</td>
+					<td><%= @team.team_name %></td>
+				</tr>
+				<tr>
+					<td>活動地域</td>
+					<td><%= @team.area %></td>
+				</tr>
+				<tr>
+					<td>募集人数</td>
+					<td><%= @team.applicant %></td>
+				</tr>
+				<tr>
+					<td>活動スタンス</td>
+					<td><%= @team.stance %></td>
+				</tr>
+				<tr>
+					<td>チーム説明</td>
+					<td><%= @team.explanation %></td>
+				</tr>
+			</table>
+			<%= link_to "チーム加入申込み", new_team_member_path, class: "btn btn-primary" %>
+			<%= link_to "戻る", "/prefectures/#{@team.prefecture_id}/sports/#{@team.sport_id}/teams", class: "btn btn-secondary" %>
+			<%= link_to "コミュニティページに移動", team_comment_room_path(@team.id), class: "btn btn-primary" %>
+			<%= link_to "メンバー一覧を見る", team_members_path, class: "btn btn-primary" %>
+		</div>
+	</div>
+</div>

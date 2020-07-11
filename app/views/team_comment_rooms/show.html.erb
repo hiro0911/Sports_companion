@@ -1,0 +1,26 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-10">
+			<h3><%= @team.team_name %>のコミュニティページです</h3>
+			<h3>＜連絡事項＞</h3>	
+			<%= @team.information %> <!-- 改行等そのまま表示 -->
+			<%= link_to "編集する", teams_information_path(@team)   %>
+			<%= form_for @team_comment do |f| %>
+			<%= f.text_area :content %>
+			<%= f.hidden_field :team_comment_room_id, :value => @team.id %>
+			<%= f.submit "コメントする" %>
+			<% end %>
+			<table class="table">
+				<% @team_comments.each do |comment| %>
+				<tr>
+					<td>
+						<%= comment.user.name %>
+						<%= comment.content %>
+						<%= comment.created_at.strftime('%Y年 %m月 %d日 %H時 %M分 %S秒')%>
+					</td>
+				</tr>
+				<% end %>
+			</table>
+		</div>
+	</div>	
+</div>

@@ -39,3 +39,18 @@
 	margin-left: 60px;
 	margin-bottom: 50px;
 }
+.main-contents{
+	height: 1000px;
+	background-image: image-url("001.jpg");
+	background-size: cover;
+	display: flex;
+	flex-direction: column; /* 要素を縦並び */
+	justify-content: center; /* 要素を中央寄せ（左右） */
+	align-items: center; /* 要素を中央寄せ（上下） */
+}
+.top-text{
+	background-color: rgba(0, 0, 0, 0.5);
+	width: 600px;
+	color: white;
+	font-size: 18px;
+}
