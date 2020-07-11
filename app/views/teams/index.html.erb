@@ -7,6 +7,7 @@
 			<h3><%= @sport.sport_genre %></h3>
 			<h3>チームメンバー募集一覧</h3>
 			<%= link_to "新規チーム作成", new_prefecture_sport_team_path, class: "btn btn-primary" %>
+			<div></div>
 			<% @teams.each do |team| %>
 			<table class="table">
 				<%= link_to team_path(team) do %>

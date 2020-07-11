@@ -1,0 +1,13 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-8">
+			<h3>新規チーム加入</h3>
+			<%= attachment_image_tag @team, :image, fallback: "no_image.png", size: "300x300" %>
+			<h3>チーム名：<%= @team.team_name %></h3>
+			<h3>このチームに加入します</h3>
+			<h3>よろしいですか？</h3>
+			<%= link_to "はい",  team_team_members_path(@team), method: :post %>
+			<%= link_to "いいえ", prefecture_sport_teams_path(@team.prefecture_id, @team.sport_id) %>
+		</div>
+	</div>
+</div>
