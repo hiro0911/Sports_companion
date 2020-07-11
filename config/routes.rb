@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   get "users/quit", to: "users#quit" # 退会画面
   delete "users/out", to: "users#out" # 退会する
 
-  resources :team_members, only: [:index, :destroy]
+  resources :team_members, only: [:destroy]
+  get "team_members/:id", to: "team_members#index"
 
 
   resources :sports, only: [:index]

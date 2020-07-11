@@ -1,11 +1,11 @@
-<% if @user == current_user %>
-<h2>マイページ</h2>
-<% else %>
-<h2>ユーザー詳細ページ</h2>
-<% end %>
 <div class="container">
 	<div class="row">
 		<div class="col-xs-10">
+			<% if @user == current_user %>
+			<h2>マイページ</h2>
+			<% else %>
+			<h2>ユーザー詳細ページ</h2>
+			<% end %>
 			<table class="table">
 				<h3>登録情報</h3>
 				<tr>
@@ -32,10 +32,11 @@
 					<%= link_to "編集する", edit_user_path(current_user), class: "btn btn-primary" %>
 		</div>		
 		<div class="col-xs-6">
-			<tr>
-				<th>マイチーム</th>
-				<td></td>
-			</tr>
+			<%= @team_members.each do |member| %>
+			<h3>マイチーム：<%= member.team.team_name %></h3>
+			<%= link_to "チーム詳細ページ", team_path(member.team.id), class: "btn btn-primary" %>
+			<%= link_to "チームを退会する", team_member_path(member.id), method: :delete, data: { confirm: '本当によろしいですか？' }, class: "btn btn-danger" %>
+			<% end %>
 		</div>
 	</div>
 </div>

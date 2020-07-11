@@ -1,8 +1,8 @@
 class TeamsController < ApplicationController
 	def index
 		@sport = Sport.find(params[:sport_id])
-		@teams = Team.where(sport_id: @sport.id)
 		@prefecture = Prefecture.find(params[:prefecture_id])
+		@teams = Team.where(sport_id: @sport.id, prefecture_id: @prefecture.id)
 		@team_comment_rooms = TeamCommentRoom.all
 	end
 	def new
@@ -10,6 +10,7 @@ class TeamsController < ApplicationController
 	end
 	def show
 		@team = Team.find(params[:id])
+		@team_members = TeamMember.where(team_id: @team.id)
 	end
 
 	def edit

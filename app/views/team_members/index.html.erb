@@ -1,0 +1,19 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-8">
+			<h3><%= @team.team_name %>のメンバー一覧</h3>
+			<table class="table">
+				<%= @team_members.each do |member| %>
+				<tr>
+					<td>
+						<%= member.user.age %>
+						<%= member.user.sex %>
+						<%= member.user.name %>
+					</td>
+				</tr>
+				<% end %>
+			</table>
+			<%= link_to "チーム詳細へ戻る", team_path(@team), class: "btn btn-primary" %>
+		</div>
+	</div>
+</div>
