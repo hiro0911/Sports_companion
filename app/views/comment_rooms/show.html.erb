@@ -9,14 +9,24 @@
 			<%= f.submit "コメントする", class: "btn btn-primary" %>
 			<% end %>
 		<table class="table">
-			<% @comments.each do |c| %>
+			<% @comments.each do |comment| %>
 			<tr>
-			<td><%= c.user.name %></td>
-			<td><%= c.sentence %></td>
-			<td><%= c.created_at.strftime('%Y年 %m月 %d日 %H時 %M分 %S秒')%></td>
+			<td><%= comment.user.name %></td>
+			<td><%= comment.sentence %></td>
+			<td><%= comment.created_at.strftime('%Y年 %m月 %d日 %H時 %M分 %S秒')%></td>
+			<td>
+				<% if current_user.already_liked?(comment) %>
+				<%= link_to '', "/comments/#{comment.id}/likes", method: :delete, class: "fas fa-heart" %>
+				
+				<% else %>
+				<%= link_to '', comment_likes_path(comment), method: :post, class: "far fa-heart" %>
+				<% end %>
+		  </td>
 		  </tr>
 			<% end %>
 		</table>
 	  </div>
 	</div>
 </div>
+<%= @likes.each do |like| %>
+<% end %>

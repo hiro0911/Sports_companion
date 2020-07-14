@@ -7,6 +7,8 @@ class CommentRoomsController < ApplicationController
 		@comment_room = CommentRoom.find(params[:id])
 		@comment = Comment.new
 		@comments = Comment.where(comment_room_id: @comment_room.id).order(created_at: :desc)
+		@like = Like.new
+		@likes = Like.all
 	end
 	def new
 		@comment_room = CommentRoom.new

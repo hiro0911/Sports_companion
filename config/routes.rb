@@ -20,7 +20,10 @@ Rails.application.routes.draw do
   get "sports/comment_rooms/new/:id", to: "comment_rooms#new"
   post "sports/comment_rooms/create/:id", to: "comment_rooms#create"
 
-  resources :comments, only: [:create]
+  resources :comments, only: [:create] do
+  	resources :likes, only:[:create]
+  	delete "likes", to: "likes#destroy"
+  end
   
   resources :teams, except: [:index, :new, :create] do
   	resources :team_members, only: [:new, :create]
