@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
-  devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  devise_for :users
 
   root "homes#top" # ルートディレクトリをトップページに設定
   get "about", to: "homes#about" # アバウトページを表示
 
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:show, :edit, :update] do
+  	resources :events
+  end
   get "users/quit", to: "users#quit" # 退会画面
   delete "users/out", to: "users#out" # 退会する
 
@@ -32,7 +34,8 @@ Rails.application.routes.draw do
   get "teams/information/:id", to: "teams#information" # 連絡事項編集画面
 
   resources :team_comment_rooms, only: [:show]
-	  
+  	  
+
 
   resources :prefectures, only: [:index] do
 	  resources :sports, only: [:index] do
@@ -41,4 +44,6 @@ Rails.application.routes.draw do
 	end
   
   resources :team_comments, only: [:create]
+
+
 end

@@ -31,7 +31,6 @@
           <td><%= f.label :password_confirmation, "パスワード（確認用）" %></td>
           <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
         </tr>
-      </table>
       <%= f.submit "新規登録", class: "btn btn-success btn-lg btn-sign-up" %>
       <p>既に登録済の方はこちら<%= link_to "ログイン", new_user_session_path %></p>
     </div>

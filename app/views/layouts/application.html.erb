@@ -9,12 +9,12 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body data-turbolinks="false">
     <% if user_signed_in? %> <!-- ユーザーのログイン状況によりヘッダーを変更 -->
     <%= render "layouts/header_login" %>
     <% else %>
     <%= render "layouts/header_logout" %>
-    <% end %>
+    <% end %>   
     <%= yield %>
   </body>
 </html>

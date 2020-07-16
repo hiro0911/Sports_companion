@@ -17,7 +17,7 @@
 			<td>
 				<% if current_user.already_liked?(comment) %>
 				<%= link_to '', "/comments/#{comment.id}/likes", method: :delete, class: "fas fa-heart" %>
-				
+				<%= comment.liked_users.count %>
 				<% else %>
 				<%= link_to '', comment_likes_path(comment), method: :post, class: "far fa-heart" %>
 				<% end %>
@@ -28,5 +28,3 @@
 	  </div>
 	</div>
 </div>
-<%= @likes.each do |like| %>
-<% end %>

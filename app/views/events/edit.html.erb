@@ -1,0 +1,12 @@
+<h3>予定を追加</h3>  
+<%= form_for @event, url: "/users/#{current_user.id}/events/#{params[:id]}", method: :patch do |f| %>
+<%= f.label :title, "予定" %>
+<%= f.text_field :title %><br>
+<%= f.label :body, "説明" %>
+<%= f.text_field :body %><br>
+<%= f.label :start_date, "開始日時" %>
+<%= f.datetime_select :start_date %><br>
+<%= f.label :end_date, "終了日時" %>
+<%= f.datetime_select :end_date %><br>
+<%= f.submit "変更を保存" %>
+<% end %>

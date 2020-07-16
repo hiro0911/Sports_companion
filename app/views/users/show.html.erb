@@ -30,6 +30,7 @@
 				</tr>
 			</table>
 					<%= link_to "編集する", edit_user_path(current_user), class: "btn btn-primary" %>
+					<%= link_to "カレンダー", user_events_path(current_user), class: "btn btn-primary" %>
 		</div>		
 		<div class="col-xs-6">
 			<%= @team_members.each do |member| %>

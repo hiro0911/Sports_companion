@@ -1,0 +1,28 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-10">
+			<h3>予定詳細</h3>
+			<table class="table">
+			<tr>
+				<th>予定</th>
+			  <td><%= @event.title %></td>
+			</tr>
+			<tr>
+				<th>説明</th>
+				<td><%= @event.body %></td>
+			</tr>
+			<tr>
+				<th>開始日時</th>
+				<td><%= @event.start_date.strftime('%Y年 %m月 %d日 %H時 %M分') %></td>
+			</tr>
+			<tr>
+				<th>終了日時</th>
+				<td><%= @event.end_date.strftime('%Y年 %m月 %d日 %H時 %M分') %></td>
+			</tr>
+		  </table>
+		  <%= link_to "この予定を編集", edit_user_event_path(current_user.id) %>
+			<%= link_to "この予定を削除", "/users/#{current_user.id}/events/#{params[:id]}", method: :delete, class: "btn btn-danger"  %>
+		  <%= link_to "カレンダー一覧に戻る", "/users/#{current_user.id}/events", class: "btn btn-primary" %>
+		</div>
+	</div>
+</div>
