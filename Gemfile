@@ -72,7 +72,7 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'jp_prefecture'
 gem "sass-rails", "~>5.0"
-gem "bootstrap-sass", "~>3.3.6"
+gem "bootstrap-sass", "~>3.4.1"
 gem "jquery-ui-rails"
 gem 'font-awesome-sass', '~> 5.4.1'
 gem 'fullcalendar-rails'
