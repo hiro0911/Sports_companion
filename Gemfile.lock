@@ -116,6 +116,7 @@ GEM
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     hashie (4.1.0)
+    honoka-rails (3.3.7)
     http-accept (1.7.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
@@ -342,6 +343,7 @@ DEPENDENCIES
   dotenv-rails
   font-awesome-sass (~> 5.4.1)
   fullcalendar-rails
+  honoka-rails (>= 3.3.6.3)
   jbuilder (~> 2.5)
   jp_prefecture
   jquery-rails

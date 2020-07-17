@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require bootstrap-sprockets
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
@@ -18,6 +19,7 @@
 //= require bootstrap-sprockets
 //= require moment
 //= require fullcalendar
+
 $(function () {
     // 画面遷移を検知
     $(document).on('turbolinks:load', function () {

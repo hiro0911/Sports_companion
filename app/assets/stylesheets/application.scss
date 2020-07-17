@@ -14,15 +14,21 @@
  *= require_self
  *= require fullcalendar
  */
-@import "bootstrap-sprockets";
+
+// Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+@import "bootstrap-sprockets";
+@import "honoka";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
-
 *{
 	margin: 0;
-	padding: 0;
+	padding: 0;	
+}
+.header{
+	background-image: image-url("header.jpg");
+	background-size: cover;
 }
 .header-table{
 	line-height: 80px;

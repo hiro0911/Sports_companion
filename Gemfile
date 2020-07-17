@@ -77,3 +77,4 @@ gem "jquery-ui-rails"
 gem 'font-awesome-sass', '~> 5.4.1'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
+gem 'honoka-rails', '>= 3.3.6.3'

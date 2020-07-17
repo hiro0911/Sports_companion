@@ -3,16 +3,16 @@
 		<div class="row header-contents">
 				<div class="col-xs-2">
 					<%= link_to root_path do %>
-					<%= image_tag "header-logo.jpg", size: "250x80" %>
+					<%= image_tag "header-logo.png", size: "250x80" %>
 					<% end %>
 				</div>
 				<div class="col-xs-2 header-block"></div>
 				<div class="col-xs-8">
-					<table class="table header-table">
+					<nav class="navbar navbar-dark">
 						<td><%= link_to "about", about_path, class: "btn btn-primary" %></td>
 						<td><%= link_to "ログイン", new_user_session_path, class: "btn btn-primary" %></td>
 						<td><%= link_to "新規登録", new_user_registration_path, class: "btn btn-primary" %></td>
-					</table>
+					</nav>
 			</div>
 		</div>
 	</div>
