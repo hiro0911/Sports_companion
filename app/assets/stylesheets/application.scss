@@ -58,8 +58,65 @@
 	align-items: center; /* 要素を中央寄せ（上下） */
 }
 .top-text{
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.7);
 	width: 600px;
 	color: white;
 	font-size: 18px;
+}
+.sub-contents{
+	height: 1000px;
+	background-image: image-url("002.jpg");
+	background-size: cover;
+	display: flex;
+	flex-direction: column; /* 要素を縦並び */
+	justify-content: center; /* 要素を中央寄せ（左右） */
+	align-items: center; /* 要素を中央寄せ（上下） */
+}
+.btn-sub-contents{
+	width: 300px;
+	margin-top: 20px;
+	background-color: rgba(0,0,0,0.7);
+	font-size: 18px;
+}
+.about-container{
+	display: flex;
+	flex-wrap: wrap;
+
+}
+.about-title{
+	text-align: center;
+	background-color: black;
+	color: white;
+}
+.about-contents{
+	width: 50%;
+	height: 500px;
+	display: flex;
+	flex-direction: column; /* 要素を縦並び */
+	justify-content: center; /* 要素を中央寄せ（左右） */
+	align-items: center; /* 要素を中央寄せ（上下） */
+	font-size: 14px;
+}
+.about-contents2{
+	background-image: image-url("about-001.jpg");
+	background-size: cover;
+}
+.about-contents3{
+	background-image: image-url("about-002.jpg");
+	background-size: cover;
+}
+.about-start{
+	height: 1000px;
+	background-image: image-url("about-003.jpg");
+	background-size: cover;
+	display: flex;
+	flex-direction: column; /* 要素を縦並び */
+	justify-content: center; /* 要素を中央寄せ（左右） */
+	align-items: center; /* 要素を中央寄せ（上下） */
+}
+.about-start-text{
+	background-color: rgba(0,0,0,0.7);
+	display: inline-block;
+	color: white;
+	padding: 50px, 20px;
 }

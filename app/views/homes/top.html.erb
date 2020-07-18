@@ -4,16 +4,16 @@
 		<p>地域ごとにスポーツチームを作ったり、探したりできます。</p><br>
 		<p>また、スポーツごとに好きなことをコメントしたり、他の人のコメントを見ることができます。</p>
 	</div>
-	<div class="top_team">
-		<%= link_to prefectures_path do %>
-			<p>チームメンバーを募集する</p>
-			<p>メンバーを募集してるチームを探す</p>
-		<% end %>	
-	</div>
+</div>
+<div class="sub-contents">
 	<div class="top_comment">
-		<%= link_to sports_path do %>
-			<p>コメントをみる</p>
-			<p>コメントする。</p>
+		<%= link_to prefectures_path, class: "btn btn-secondary btn-sub-contents" do %>
+		<p>チームメンバーを募集する</p>
+		<p>メンバーを募集してるチームを探す</p>
+		<% end %>	<br>
+		<%= link_to sports_path, class: "btn btn-secondary btn-sub-contents" do %>
+		<p>コメントをみる</p>
+		<p>コメントする。</p>
 		<% end %>
 	</div>
 </div>
