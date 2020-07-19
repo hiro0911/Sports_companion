@@ -1,6 +1,6 @@
 class CommentRoomsController < ApplicationController
 	def index
-		@sport = Sport.find(params[:id])
+		@sport = Sport.find(params[:sport_id])
 		@comment_rooms = CommentRoom.where(sport_id: @sport.id) 
 	end
 	def show
@@ -12,14 +12,14 @@ class CommentRoomsController < ApplicationController
 	end
 	def new
 		@comment_room = CommentRoom.new
-		@sport = Sport.find(params[:id])
+		@sport = Sport.find(params[:sport_id])
 	end
 	def create
 		@comment_room = CommentRoom.new(comment_room_params)
-		@sport = Sport.find(params[:id])
+		@sport = Sport.find(params[:sport_id])
 		@comment_room.sport_id = @sport.id
 		@comment_room.save!
-		redirect_to "/sports/comment_rooms/#{@sport.id}"
+		redirect_to "/sports/#{@sport.id}/comment_rooms"
 	end
 
 private

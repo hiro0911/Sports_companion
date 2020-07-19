@@ -17,10 +17,10 @@ Rails.application.routes.draw do
 
   resources :sports, only: [:index]
   
-  resources :comment_rooms, only: [:show]
-  get "sports/comment_rooms/:id", to: "comment_rooms#index"
-  get "sports/comment_rooms/new/:id", to: "comment_rooms#new"
-  post "sports/comment_rooms/create/:id", to: "comment_rooms#create"
+  get "comment_rooms/:id", to: "comment_rooms#show"
+  get "sports/:sport_id/comment_rooms", to: "comment_rooms#index"
+  get "sports/:sport_id/comment_rooms/new", to: "comment_rooms#new"
+  post "sports/:sport_id/comment_rooms/create", to: "comment_rooms#create"
 
   resources :comments, only: [:create] do
   	resources :likes, only:[:create]

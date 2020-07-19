@@ -1,10 +1,10 @@
 <div class="container">
 	<div class="row">
-		<div class="col-xs-10">
-			<h3>ジャンル：<%= @comment_room.sport.sport_genre %></h3>
-			<h3>ルームタイトル：<%= @comment_room.title %></h3>
+		<div class="col-xs-12">
+			<h3 class="comment-title">ジャンル：<%= @comment_room.sport.sport_genre %></h3>
+			<h3 class="comment-title-sub">ルームタイトル：<%= @comment_room.title %></h3>
 			<%= form_with model:@comment, url:comments_path,  method: :post, local: true do |f| %>
-			<%= f.text_area :sentence %>
+			<%= f.text_area :sentence, size: "50x5" %>
 			<%= f.hidden_field :comment_room_id, :value => @comment_room.id %>
 			<%= f.submit "コメントする", class: "btn btn-primary" %>
 			<% end %>

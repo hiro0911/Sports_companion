@@ -1,10 +1,10 @@
 <div class="container">
 	<div class="row">
 		<div class="col-xs-10">
-			<h3>チームメンバー募集詳細</h3>
+			<h3 class="title">チームメンバー募集詳細</h3>
 			<%= attachment_image_tag @team, :image, size: "300x300", fallback: "no_image.png", size: "300x300" %>
 			<div></div>
-			<%= link_to "編集", edit_team_path(@team), class: "btn btn-primary" %>
+			
 			<table class="table">
 				<tr>
 					<td>チーム名</td>
@@ -27,10 +27,14 @@
 					<td><%= @team.explanation %></td>
 				</tr>
 			</table>
-			<%= link_to "募集一覧に戻る", "/prefectures/#{@team.prefecture_id}/sports/#{@team.sport_id}/teams", class: "btn btn-secondary" %>
+			<% if @team.users.include?(current_user) %>
+			<%= link_to "編集", edit_team_path(@team), class: "btn btn-primary team-show-btn" %>
 			<%= link_to "コミュニティページに移動", team_comment_room_path(@team.id), class: "btn btn-primary" %>
+			<% else %>
 			<%= link_to "チーム加入申込み", new_team_team_member_path(@team), class: "btn btn-primary" %>
+			<% end %>
 			<%= link_to "メンバー一覧を見る", "/team_members/#{@team.id}", class: "btn btn-primary" %>
+			<%= link_to "募集一覧に戻る", "/prefectures/#{@team.prefecture_id}/sports/#{@team.sport_id}/teams", class: "btn btn-secondary" %>
 		</div>
 	</div>
 </div>

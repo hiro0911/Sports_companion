@@ -3,7 +3,7 @@
 		<div class="col-xs-8">
 			<h3><%= @team.team_name %>のメンバー一覧</h3>
 			<table class="table">
-				<%= @team_members.each do |member| %>
+				<% @team_members.each do |member| %>
 				<tr>
 					<td>
 						<%= member.user.age %>

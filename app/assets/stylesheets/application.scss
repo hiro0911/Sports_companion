@@ -17,8 +17,6 @@
 
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
-@import "bootstrap-sprockets";
-@import "honoka";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
@@ -26,9 +24,8 @@
 	margin: 0;
 	padding: 0;	
 }
-.header{
-	background-image: image-url("header.jpg");
-	background-size: cover;
+.navbar-nav li{
+	float: left;
 }
 .header-table{
 	line-height: 80px;
@@ -95,7 +92,8 @@
 	flex-direction: column; /* 要素を縦並び */
 	justify-content: center; /* 要素を中央寄せ（左右） */
 	align-items: center; /* 要素を中央寄せ（上下） */
-	font-size: 14px;
+	font-size: 18px;
+	background-color: rgba(255,255,255,0.5);
 }
 .about-contents2{
 	background-image: image-url("about-001.jpg");
@@ -119,4 +117,64 @@
 	display: inline-block;
 	color: white;
 	padding: 50px, 20px;
+}
+.prefecture-title{
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+body{
+	background-image: image-url("background-image.jpg");
+	background-size: cover;
+}
+.row{
+	background-color: rgba(255,255,255,1);
+	padding: 50px;
+	margin-top: 50px;
+}
+.sports-prefecture{
+	margin-top: 50px;
+	font-size: 24px;
+}
+.sports-title{
+	margin-bottom: 50px;
+}
+.sports-contents{
+	margin-top: 20px;
+}
+.user-show-title{
+	margin-top: 50px;
+	margin-left: 50px;
+	margin-bottom: 50px;
+}
+.user-show-team{
+	margin-top: 200px;
+	margin-bottom: 20px;
+}
+.user-edit-info{
+	margin-left: 50px;
+}
+.title{
+	margin-top: 50px;
+	margin-left: 50px;
+	margin-bottom: 50px;
+	background-color: rgba(255,255,255,1);
+}
+.calendar{
+	background-color: white;
+}
+.comment-title{
+	margin-top: 50px;
+	margin-left: 50px;
+}
+.comment-title-sub{
+	margin-left: 50px;
+	margin-bottom: 50px;
+}
+.team-btn{
+	margin-top: 30px;
+	margin-bottom: 50px;
+}
+.information-btn{
+	margin-top: 20px;
+	margin-bottom: 20px;
 }

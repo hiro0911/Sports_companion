@@ -1,21 +1,21 @@
 <div class="container">
 	<div class="row">
-		<div class="col-xs-10">
-			<h3>ユーザー詳細ページ</h3>
+		<div class="col">
+			<h3 class="user-show-title">ユーザー詳細ページ</h3>
 			<table class="table">
-				<h3>登録情報</h3>
+				<h3 class="user-edit-info">登録情報</h3>
 				<%= form_for @user do |f| %>
 				<tr>
 					<th><%= f.label :name, "ニックネーム" %></th>
-					<td><%= f.text_field :name %></td>
+					<td><%= f.text_field :name, size: "50x20" %></td>
 				</tr>
 				<tr>
 					<th><%= f.label :email, "メールアドレス" %></th>
-					<td><%= f.text_field :email %></td>
+					<td><%= f.text_field :email, size: "50x20" %></td>
 				</tr>
 				<tr>
-					<th><%= f.label :age, "年齢" %></th>
-					<td><%= f.text_field :age %></td>
+					<th><%= f.label :age, "年齢（半角数字）" %></th>
+					<td><%= f.text_field :age %>歳</td>
 				</tr>
 				<tr>
 					<th><%= f.label :sex, "性別" %></th>
@@ -23,19 +23,12 @@
 				</tr>
 				<tr>
 					<th><%= f.label :introduction, "自己紹介" %></th>
-					<td><%= f.text_area :introduction %></td>
+					<td><%= f.text_area :introduction, size: "50x10" %></td>
 				</tr>
 			</table>
 			<%= f.submit "変更を保存する", class: "btn btn-primary"  %>
-			<% end %>
-			<table class="table">
-				<tr>
-					<th>マイチーム</th>
-					<td></td>
-				</tr>
-			</table>
-			<%= link_to "退会する", users_quit_path, class: "btn btn-danger" %>
-			<%= link_to "戻る", user_path(current_user), class: "btn btn-info" %>
+			<%= link_to "戻る", user_path(current_user), class: "btn btn-primary" %>
+			<% end %>			
 		</div>
 	</div>
 </div>

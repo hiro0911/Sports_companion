@@ -1,12 +1,16 @@
 <div class="container">
 	<div class="row">
-		<div class="col-xs-8">
-			<h3>コメントルーム新規作成</h3>
-			<%= form_for @comment_room, url: "/sports/comment_rooms/create/#{@sport.id}" do |f| %>
-			<%= f.label :title, "ルームタイトル" %>
-			<%= f.text_field :title %>
-			<%= f.submit "新規作成", class: "btn btn-success" %>
+		<div class="col-6">
+			<h3 class="title">コメントルーム作成</h3>
+			<table class="table">
+				<%= form_for @comment_room, url: "/sports/#{@sport.id}/comment_rooms/create" do |f| %>
+				<tr>
+					<td><%= f.label :title, "ルーム名" %></td>
+					<td><%= f.text_field :title %></td>
+				</tr>
+			</table>
+			<%= f.submit "作成する", class: "btn btn-primary" %>
 			<% end %>
 		</div>
-	</div>	
+	</div>
 </div>

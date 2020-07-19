@@ -72,9 +72,9 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'jp_prefecture'
 gem "sass-rails", "~>5.0"
-gem "bootstrap-sass", "~>3.3.6"
 gem "jquery-ui-rails"
 gem 'font-awesome-sass', '~> 5.4.1'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
-gem 'honoka-rails', '>= 3.3.6.3'
+gem 'bootstrap', '~> 4.1.1'
+gem 'carrierwave'

@@ -1,19 +1,20 @@
-<div class="header">
-	<div class="container">
-		<div class="row header-contents">
-				<div class="col-xs-2">
-					<%= link_to root_path do %>
-					<%= image_tag "header-logo.png", size: "250x80" %>
-					<% end %>
-				</div>
-				<div class="col-xs-2 header-block"></div>
-				<div class="col-xs-8">
-					<nav class="navbar navbar-dark">
-						<td><%= link_to "about", about_path, class: "btn btn-primary" %></td>
-						<td><%= link_to "ログイン", new_user_session_path, class: "btn btn-primary" %></td>
-						<td><%= link_to "新規登録", new_user_registration_path, class: "btn btn-primary" %></td>
-					</nav>
-			</div>
-		</div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<%= link_to root_path, class: "navbar-brand navbar-left" do %>
+	<h3>Sports companion</h3>
+	<% end %>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-sample">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbar-sample">
+		<ul class="navbar-nav mr-auto">
+		</ul>
+		<ul class="navbar-nav">
+			<td><%= link_to "about", about_path, class: "nav-link" %></td>
+			<td><%= link_to "ログイン", new_user_session_path, class: "nav-link" %></td>
+			<td><%= link_to "新規登録", new_user_registration_path, class: "nav-link" %></td>
+		</ul>
 	</div>
-</div>
+</nav>
+
+
+

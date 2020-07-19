@@ -3,7 +3,8 @@ class CommentsController < ApplicationController
 		@comment = Comment.new(comment_params)
 		@comment.user_id = current_user.id
 		@comment.save!
-		redirect_to comment_room_path(@comment.comment_room_id)
+    path = Rails.application.routes.recognize_path(request.referer)
+    redirect_to path
 	end
 
 
