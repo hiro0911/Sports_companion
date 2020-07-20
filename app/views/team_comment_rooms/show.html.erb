@@ -23,5 +23,6 @@
 			</table>
 			<%= link_to "チーム詳細ページ", team_path(@team), class: "btn btn-primary" %>
 		</div>
+		<%= paginate @team_comments %>
 	</div>	
 </div>

@@ -55,3 +55,5 @@ Team.create!(
 		user_id: n + 1,
 		team_id: 1)
 end
+TeamCommentRoom.create!(
+	team_id: 1)

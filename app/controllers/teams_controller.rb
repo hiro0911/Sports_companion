@@ -2,7 +2,7 @@ class TeamsController < ApplicationController
 	def index
 		@sport = Sport.find(params[:sport_id])
 		@prefecture = Prefecture.find(params[:prefecture_id])
-		@teams = Team.where(sport_id: @sport.id, prefecture_id: @prefecture.id)
+		@teams = Team.where(sport_id: @sport.id, prefecture_id: @prefecture.id).page(params[:page]).reverse_order.per(10)
 		@team_comment_rooms = TeamCommentRoom.all
 	end
 	def new
@@ -19,19 +19,21 @@ class TeamsController < ApplicationController
 
 	def update
 		@team = Team.find(params[:id])
-		@team.update!(team_params)
-		if params[:team][:information]
-			redirect_to team_comment_room_path(@team)
+		if @team.update(team_params)
+			redirect_to team_path(@team.id)
 		else
-			redirect_to team_path(@team)
+			render "edit"
 		end
 	end
 
 	def create
 		@team = Team.new(team_params)
-		@team.save!
-		TeamCommentRoom.create(team_id: @team.id)
-		redirect_to prefecture_sport_teams_path
+		if @team.save
+			TeamCommentRoom.create(team_id: @team.id)
+			redirect_to prefecture_sport_teams_path
+		else
+			render "new"
+		end
 	end
 	def information
 		@team = Team.find(params[:id])

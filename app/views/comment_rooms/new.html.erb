@@ -4,6 +4,7 @@
 			<h3 class="title">コメントルーム作成</h3>
 			<table class="table">
 				<%= form_for @comment_room, url: "/sports/#{@sport.id}/comment_rooms/create" do |f| %>
+				<%= render 'layouts/error_messages', model: f.object %>
 				<tr>
 					<td><%= f.label :title, "ルーム名" %></td>
 					<td><%= f.text_field :title %></td>

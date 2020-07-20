@@ -21,7 +21,7 @@ class TeamMembersController < ApplicationController
 
 	def index
 		@team = Team.find(params[:id])
-		@team_members = TeamMember.where(team_id: @team.id)
+		@team_members = TeamMember.where(team_id: @team.id).page(params[:page]).reverse_order.per(15)
 	end
 
 	def destroy

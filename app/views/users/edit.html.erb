@@ -5,6 +5,7 @@
 			<table class="table">
 				<h3 class="user-edit-info">登録情報</h3>
 				<%= form_for @user do |f| %>
+				<%= render 'layouts/error_messages', model: f.object %>
 				<tr>
 					<th><%= f.label :name, "ニックネーム" %></th>
 					<td><%= f.text_field :name, size: "50x20" %></td>

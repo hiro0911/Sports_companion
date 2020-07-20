@@ -15,5 +15,6 @@
 			</table>
 			<%= link_to "チーム詳細へ戻る", team_path(@team), class: "btn btn-primary" %>
 		</div>
+		<%= paginate @team_members %>
 	</div>
 </div>

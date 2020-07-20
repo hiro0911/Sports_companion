@@ -19,10 +19,12 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+@import url('https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap');
 
 *{
 	margin: 0;
 	padding: 0;	
+	font-family: 'Sawarabi Mincho', sans-serif;
 }
 .navbar-nav li{
 	float: left;
@@ -177,4 +179,30 @@ body{
 .information-btn{
 	margin-top: 20px;
 	margin-bottom: 20px;
+}
+body,
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+footer {
+  margin-top: auto;
+}
+.team_member_new{
+	margin-top: 20px;
+}
+.btn-yes{
+	margin-top: 20px;
+	margin-left: 40px;
+	margin-right: 20px;
+}
+.btn-no{
+	margin-top: 20px;
+}
+.team_name_thanks{
+	margin-top: 20px;
+}
+.team_image{
+	margin-top: 50px;
 }

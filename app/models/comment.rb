@@ -1,5 +1,6 @@
 class Comment < ApplicationRecord
-
+	validates :user_id, :comment_room_id, presence: true
+	validates :sentence, presence: true, length: {maximum: 200}
 	belongs_to :user
 	belongs_to :comment_room
 	has_many :likes, dependent: :destroy
