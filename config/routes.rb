@@ -8,8 +8,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update] do
   	resources :events
   end
-  get "users/quit", to: "users#quit" # 退会画面
-  delete "users/out", to: "users#out" # 退会する
+  delete "users/:id/out", to: "users#out" # 退会する
 
   resources :team_members, only: [:destroy]
   get "team_members/:id", to: "team_members#index"

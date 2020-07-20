@@ -35,7 +35,7 @@
         <div class="col"></div>
       <%= f.submit "新規登録", class: "btn btn-success btn-lg btn-sign-up" %>
       <div></div>
-      <%= render "devise/shared/links" %>
+      <%= link_to 'Googleログイン',  user_google_omniauth_authorize_path %>
       <p>既に登録済の方はこちら<%= link_to "ログイン", new_user_session_path %></p>
     </div>
   </div>

@@ -6,9 +6,11 @@
 				<% @team_members.each do |member| %>
 				<tr>
 					<td>
+						<%= link_to user_path(member.user.id) do %>
 						<%= member.user.age %>
 						<%= member.user.sex %>
 						<%= member.user.name %>
+						<% end %>
 					</td>
 				</tr>
 				<% end %>
