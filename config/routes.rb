@@ -16,10 +16,13 @@ Rails.application.routes.draw do
 
   resources :sports, only: [:index]
   
-  get "comment_rooms/:id", to: "comment_rooms#show"
+  get "comment_rooms/:id/comments", to: "comment_rooms#show"
   get "sports/:sport_id/comment_rooms", to: "comment_rooms#index"
   get "sports/:sport_id/comment_rooms/new", to: "comment_rooms#new"
   post "sports/:sport_id/comment_rooms/create", to: "comment_rooms#create"
+
+  post "comment_rooms/:comment_room_id/comments", to: "comments#create"
+  delete "comment_rooms/:comment_room_id/comments/:id", to: "comments#destroy"
 
   resources :comments, only: [:create] do
   	resources :likes, only:[:create]
@@ -32,9 +35,12 @@ Rails.application.routes.draw do
   end
   get "teams/information/:id", to: "teams#information" # 連絡事項編集画面
 
-  resources :team_comment_rooms, only: [:show]
-  	  
-
+  resources :team_comment_rooms, only: [:abc] do
+    resources :team_comments, only: [:create, :destroy]
+  end
+  get "/team_comment_rooms/:team_comment_room_id/team_comments/:id", to: "team_comment_rooms#show"
+  get "/team_comment_rooms/:team_comment_room_id", to: "team_comment_rooms#show"
+  get "/team_comment_rooms/:team_comment_room_id/team_comments", to: "team_comment_rooms#show"
 
   resources :prefectures, only: [:index] do
 	  resources :sports, only: [:index] do
@@ -42,7 +48,7 @@ Rails.application.routes.draw do
 	  end
 	end
   
-  resources :team_comments, only: [:create]
+  
 
 
 end

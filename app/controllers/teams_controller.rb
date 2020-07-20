@@ -11,6 +11,7 @@ class TeamsController < ApplicationController
 	def show
 		@team = Team.find(params[:id])
 		@team_members = TeamMember.where(team_id: @team.id)
+		@team_comment_room = TeamCommentRoom.find_by(team_id: @team.id)
 	end
 
 	def edit
@@ -37,6 +38,7 @@ class TeamsController < ApplicationController
 	end
 	def information
 		@team = Team.find(params[:id])
+		@team_comment_room = TeamCommentRoom.find_by(team_id: @team.id)
 	end
 
 private

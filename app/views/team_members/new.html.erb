@@ -2,6 +2,7 @@
 	<div class="row">
 		<div class="col-12">
 			<h3 class="title">新規チーム加入</h3>
+			<%= render 'layouts/error_messages', model: @team_member %>
 			<%= attachment_image_tag @team, :image, fallback: "no_image.png", size: "300x300" %>
 			<h3 class="team_member_new">チーム名：<%= @team.team_name %></h3>
 			<h3>このチームに加入します</h3>

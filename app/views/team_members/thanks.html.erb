@@ -5,7 +5,7 @@
 			<%= attachment_image_tag @team, :image, fallback: "no_image.png", size: "300x300" %>
 			<h3 class="team_name_thanks">チーム名：<%= @team.team_name %></h3>
 			<h3>チームに加入しました！</h3>
-			<%= link_to "コミュニティページに移動",  team_comment_room_path(@team), class: "btn btn-primary" %>
+			<%= link_to "コミュニティページに移動",  "/team_comment_rooms/#{@team.id}", class: "btn btn-primary" %>
 			<%= link_to "チーム詳細に戻る", team_path(@team), class: "btn btn-primary" %>
 		</div>
 	</div>

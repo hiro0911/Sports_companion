@@ -6,7 +6,7 @@
 			<table class="table">
 				<% @comment_rooms.each do |room| %>
 				<tr>
-					<td><%= link_to room.title, "/comment_rooms/#{room.id}"  %></td>
+					<td><%= link_to room.title, "/comment_rooms/#{room.id}/comments"  %></td>
 				</tr>
 				<% end %>
 			</table>

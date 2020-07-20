@@ -1,0 +1,24 @@
+			<h3 class="comment-title">ジャンル：<%= @comment_room.sport.sport_genre %></h3>
+			<h3 class="comment-title-sub">ルームタイトル：<%= @comment_room.title %></h3>
+			<%= form_with model:@comment, url: "/comment_rooms/#{@comment_room.id}/comments",  method: :post, remote: true do |f| %>
+			<% f.label :sentence, t('.comment') %>
+			<%= f.text_area :sentence, size: "50x5", class: "comment_body" %>
+			<%= f.hidden_field :comment_room_id, :value => @comment_room.id %>
+			<%= f.submit "コメントする", class: "btn btn-primary" %>
+			<% end %>
+		<table class="table">
+			<% @comments.each do |comment| %>
+			<tr>
+				<td><%= comment.user.name %></td>
+				<td><%= comment.sentence %></td>
+				<td><%= comment.created_at.strftime('%Y年 %m月 %d日 %H時 %M分 %S秒')%></td>
+				<td id="likes_buttons_<%= comment.id %>">
+					<%= render partial: 'likes/like', locals: { comment: comment} %>
+			  </td>
+			  <% if comment.user_id == current_user.id %>
+			  <td><%= link_to "削除", "/comment_rooms/#{@comment_room.id}/comments/#{comment.id}", method: :delete, class: "btn btn-danger", remote: true %></td>
+			  <% end %>
+		  </tr>
+			<% end %>
+		</table>
+		<%= paginate @comments %>

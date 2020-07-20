@@ -1,28 +1,7 @@
 <div class="container">
 	<div class="row">
-		<div class="col-xs-10">
-			<h3 class="title"><%= @team.team_name %>のコミュニティページです</h3>
-			<h3>＜連絡事項＞</h3>	
-			<%= simple_format(@team.information) %><!-- 改行等そのまま表示 -->
-			<%= link_to "編集する", "/teams/information/#{@team.id}", class: "btn btn-primary information-btn" %>
-			<%= form_for @team_comment do |f| %>
-			<%= f.text_field :content, size: "50x10" %>
-			<%= f.hidden_field :team_comment_room_id, :value => @team.id %>
-			<%= f.submit "コメントする" %>
-			<% end %>
-			<table class="table">
-				<% @team_comments.each do |comment| %>
-				<tr>
-					<td>
-						<%= comment.user.name %>
-						<%= comment.content %>
-						<%= comment.created_at.strftime('%Y年 %m月 %d日 %H時 %M分 %S秒')%>
-					</td>
-				</tr>
-				<% end %>
-			</table>
-			<%= link_to "チーム詳細ページ", team_path(@team), class: "btn btn-primary" %>
+		<div id="team_comment_<%= @team_comment_room.id %>" class="col-10">
+			<%= render partial: 'team_comments/team_comment', locals: { team_comment_room: @team_comment_room} %>
 		</div>
-		<%= paginate @team_comments %>
 	</div>	
 </div>

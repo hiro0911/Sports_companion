@@ -1,0 +1,24 @@
+			<h3 class="title"><%= @team.team_name %>のコミュニティページです</h3>
+			<h3>＜連絡事項＞</h3>	
+			<%= simple_format(@team.information) %><!-- 改行等そのまま表示 -->
+			<%= link_to "編集する", "/teams/information/#{@team.id}", class: "btn btn-primary information-btn" %>
+			<%= link_to "チーム詳細ページ", team_path(@team), class: "btn btn-primary" %>
+			<%= form_for @team_comment, url: "/team_comment_rooms/#{@team_comment_room.id}/team_comments", method: :post, remote: true do |f| %>
+			<% f.label :content, t('.team_comment') %>
+			<%= f.text_field :content, size: "50x10" %>
+			<%= f.hidden_field :team_comment_room_id, :value => @team.id %>
+			<%= f.submit "コメントする" %>
+			<% end %>
+			<table class="table">
+				<% @team_comments.each do |comment| %>
+				<tr>
+					<td><%= comment.user.name %></td>
+					<td><%= comment.content %></td>
+					<td><%= comment.created_at.strftime('%Y年 %m月 %d日 %H時 %M分 %S秒')%></td>
+					<% if comment.user_id == current_user.id %>
+					<td><%= link_to "削除", "/team_comment_rooms/#{@team_comment_room.id}/team_comments/#{comment.id}", method: :delete, remote: true, class: "btn btn-danger" %></td>
+					<% end %>
+				</tr>
+				<% end %>
+			</table>
+			<%= paginate @team_comments %>

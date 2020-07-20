@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
-	
+
 	def show
 		@user = User.find(params[:id])
 		@team_members = TeamMember.where(user_id: params[:id])
 		@likes = Like.where(user_id: params[:id])
+		@team_member = TeamMember.find_by(user_id: @user.id)
 	end
 	def edit
 		@user = User.find(params[:id])

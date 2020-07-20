@@ -1,0 +1,1 @@
+$('#comment_<%= @comment_room.id %>').html("<%= j(render partial: 'comments/comment', locals: {comment_room: @comment_room}) %>");
