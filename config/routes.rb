@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'inquiry/index'
+  get 'inquiry/confirm'
+  get 'inquiry/thanks'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
@@ -48,7 +51,9 @@ Rails.application.routes.draw do
 	  end
 	end
   
-  
+  get   'inquiry/new', to: 'inquiry#new'     # 入力画面
+  get  'inquiry/confirm', to: 'inquiry#confirm'   # 確認画面
+  get  'inquiry/thanks', to: 'inquiry#thanks'    # 送信完了画面
 
 
 end

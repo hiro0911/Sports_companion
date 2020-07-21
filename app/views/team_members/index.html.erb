@@ -7,7 +7,9 @@
 				<tr>
 					<td>
 						<%= link_to user_path(member.user.id) do %>
+						<% unless member.user.age.blank? %>
 						<%= member.user.age %>歳
+						<% end %>
 						<%= member.user.sex %>
 						<%= member.user.name %>
 						<% end %>
