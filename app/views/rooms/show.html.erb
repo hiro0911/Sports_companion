@@ -1,0 +1,24 @@
+<div class="container">
+	<div class="row">
+		<% if @messages.blank? %>
+		<h3>メッセージはありません</h3>
+		<% else %>
+		<h3>メッセージ一覧</h3>
+		<% end %>
+		<div class="col-12">
+			<table class="table">
+				<% @messages.each do |message| %>
+				<tr>
+						<td><%= message.user.name %></td>
+						<td>
+							<%= link_to user_message_path(user_id: message.user.id, id: message.id) do %>
+							<%= message.title %>
+							<% end %>
+						</td>
+						<td><%= message.created_at.strftime('%Y年 %m月 %d日 %H時 %M分 %S秒') %></td>
+				</tr>
+				<% end %>
+			</table>
+		</div>
+	</div>
+</div>

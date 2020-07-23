@@ -1,5 +1,5 @@
 class RoomsController < ApplicationController
-	def index
-		@rooms = Room.where(user_id: current_user.id)
+	def show
+		@messages = Message.where(room_id: current_user.id).order(created_at: :desc)
 	end
 end

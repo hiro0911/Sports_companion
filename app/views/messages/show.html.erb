@@ -1,0 +1,17 @@
+<div class="container">
+	<div class="row">
+		<div class="col-12">
+			<table class="table">
+				<tr>
+					<th>タイトル</th>
+					<td><%= @message.title %></td>
+				</tr>
+				<tr>
+					<td>本文</td>
+					<td><%= simple_format(@message.content) %></td>
+				</tr>
+			</table>
+			<%= link_to "返信する", new_user_message_path(user_id: @message.user.id), class: "btn btn-primary" %>
+		</div>
+	</div>	
+</div>

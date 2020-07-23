@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_23_173800) do
+ActiveRecord::Schema.define(version: 2020_07_23_182234) do
 
   create_table "applicants", force: :cascade do |t|
     t.integer "user_id"
@@ -70,9 +70,10 @@ ActiveRecord::Schema.define(version: 2020_07_23_173800) do
   create_table "messages", force: :cascade do |t|
     t.integer "user_id"
     t.integer "room_id"
-    t.string "content", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "content"
+    t.string "title"
     t.index ["room_id"], name: "index_messages_on_room_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
@@ -88,15 +89,6 @@ ActiveRecord::Schema.define(version: 2020_07_23_173800) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_rooms_on_user_id"
-  end
-
-  create_table "sns_credentials", force: :cascade do |t|
-    t.string "provider"
-    t.string "uid"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_sns_credentials_on_user_id"
   end
 
   create_table "sports", force: :cascade do |t|

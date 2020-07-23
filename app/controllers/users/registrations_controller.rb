@@ -59,6 +59,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
 password = Devise.friendly_token.first(7)
     if session[:provider].present? && session[:uid].present?
       @user = User.create(nickname:session[:nickname], email: session[:email], password: "password", password_confirmation: "password")

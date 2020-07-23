@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :edit, :update] do
     resources :events
+    resources :messages
   end
   delete "users/:id/out", to: "users#out" # 退会する
 
@@ -50,6 +51,6 @@ Rails.application.routes.draw do
   get  'inquiry/confirm', to: 'inquiry#confirm' # 確認画面
   get  'inquiry/thanks', to: 'inquiry#thanks' # 送信完了画面
 
-  resources :messages
-  resources :rooms
+  
+  resources :rooms, only:[:show, :create]
 end

@@ -4,9 +4,6 @@ class UsersController < ApplicationController
     @team_members = TeamMember.where(user_id: params[:id])
     @likes = Like.where(user_id: params[:id])
     @applicants = Applicant.where(user_id: current_user.id)
-    if Room.find_by(user_id: @user.id).blank?
-      Room.create!(user_id: @user.id)
-    end
     @room = Room.find_by(user_id: @user.id)
   end
 
