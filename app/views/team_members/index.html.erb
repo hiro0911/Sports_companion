@@ -1,12 +1,14 @@
+<!-- チームメンバー一覧ページ -->
 <div class="container">
 	<div class="row">
-		<div class="col-xs-8">
+		<div class="col-8">
 			<h3><%= @team.team_name %>のメンバー一覧</h3>
 			<table class="table">
 				<% @team_members.each do |member| %>
 				<tr>
 					<td>
 						<%= link_to user_path(member.user.id) do %>
+						<!-- ユーザーの年齢情報がある場合表示 -->
 						<% unless member.user.age.blank? %>
 						<%= member.user.age %>歳
 						<% end %>
@@ -19,6 +21,7 @@
 			</table>
 			<%= link_to "チーム詳細へ戻る", team_path(@team), class: "btn btn-primary" %>
 		</div>
+		<!-- kaminariによるページネーション -->
 		<%= paginate @team_members %>
 	</div>
 </div>

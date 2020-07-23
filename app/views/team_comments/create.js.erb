@@ -1,2 +1,4 @@
+// チームのコメントを非同期通信
 $('#team_comment_<%= @team_comment_room.id %>').html("<%= j(render partial: 'team_comments/team_comment', locals: {team_comment_room: @team_comment_room}) %>");
+// コメント後フォームを空にする
 $('#team_comment_content').val('')

@@ -1,5 +1,7 @@
+<!-- コメントルームのページ -->
 <div class="container">
 	<div class="row">
+		<!-- IDに紐づいたjsを使用により非同期通信 -->
 		<div id="comment_<%= @comment_room.id %>" class="col-12">
 			<%= render partial: 'comments/comment', locals: { comment_room: @comment_room} %>
 	  </div>

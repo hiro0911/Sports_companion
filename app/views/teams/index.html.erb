@@ -1,3 +1,4 @@
+<!-- チームメンバー募集一覧ページ -->
 <div class="container">
 	<div class="row">
 		<div class="col-10">
@@ -5,13 +6,13 @@
 				<h3><%= @prefecture.content %></h3>		
 				<h3><%= @sport.sport_genre %></h3>
 				<h3>チームメンバー募集一覧</h3>
-		  </div>
+			</div>
 			<%= link_to "新規チーム作成", new_prefecture_sport_team_path, class: "btn btn-primary team-btn" %>
 			<div></div>
-	
 			<% @teams.each do |team| %>
 			<table class="table">
 				<%= link_to team_path(team) do %>
+				<!-- refileによる画像表示 -->
 				<%= attachment_image_tag team, :image, size: "300x300", fallback: "no_image.png", size: "300x300", class: "team_image" %>
 				<% end %>
 				<tr>
@@ -30,8 +31,16 @@
 					<td>活動スタンス</td>
 					<td><%= team.stance %></td>
 				</tr>
+				<tr>
+					<td>
+						<% if team.users.blank? %>
+						<%= link_to "チームを削除", "/teams/#{team.id}", method: :delete, class: "btn btn-danger" %>
+						<% end %>
+					</td>
+				</tr>	
 			</table>
 			<% end %>
+			<!-- kaminariによるページネーション	 -->
 			<%= paginate @teams %>
 		</div>
 	</div>

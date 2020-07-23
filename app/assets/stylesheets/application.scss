@@ -149,7 +149,7 @@ body{
 	margin-bottom: 50px;
 }
 .user-show-team{
-	margin-top: 20px;
+	margin-top: 50px;
 	margin-bottom: 20px;
 }
 .user-edit-info{
@@ -196,6 +196,7 @@ footer {
 	margin-top: 20px;
 	margin-left: 40px;
 	margin-right: 20px;
+	width: 100px;
 }
 .btn-no{
 	margin-top: 20px;
@@ -211,4 +212,16 @@ footer {
 }
 .inquiry{
 	margin: 20px 0;
+}
+.like_heart{
+	color: red;
+}
+.team_out_btn{
+	margin-left: 300px;
+}
+.notice{
+	display: block;
+	background-color: black;
+	color: white;
+	text-align: center;
 }

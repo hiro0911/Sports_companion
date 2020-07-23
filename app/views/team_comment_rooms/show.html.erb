@@ -1,5 +1,7 @@
+<!-- チームのコミュニティページ	 -->
 <div class="container">
 	<div class="row">
+		<!-- 非同期通信、idに紐づいたjsが発火 -->
 		<div id="team_comment_<%= @team_comment_room.id %>" class="col-10">
 			<%= render partial: 'team_comments/team_comment', locals: { team_comment_room: @team_comment_room} %>
 		</div>

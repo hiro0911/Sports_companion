@@ -1,0 +1,23 @@
+<div class="container">
+	<div class="row">
+		<div class="col-10">
+			<h3 class="title">チーム加入申請者一覧</h3>
+				<% @applicants.each do |applicant| %>
+				<table class="table">
+					<tr>
+						<td><%= applicant.user.age %></td>
+						<td><%= applicant.user.sex %></td>
+						<td>
+							<%= link_to user_path(applicant.user) do %>
+							<%= applicant.user.name %>
+							<% end %>
+						</td>
+						<td><%= link_to "チーム加入許可", "/teams/#{applicant.team.id}/applicants/#{applicant.id}", method: :post, class: "btn btn-success" %></td>
+						<td><%= link_to "チーム加入拒否", "/teams/#{applicant.team.id}/applicants/#{applicant.id}", data:{confirm: "本当に拒否しますか？"},method: :delete, class: "btn btn-danger" %></td>
+					</tr>
+				</table>
+				<% end %>
+				<%= link_to "チーム詳細に戻る",team_path(@team), class: "btn btn-primary" %>
+		</div>
+	</div>
+</div>

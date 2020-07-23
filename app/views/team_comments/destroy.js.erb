@@ -1,1 +1,2 @@
+// チームコメントの削除を非同期通信。jを用いてエスケープ処理
 $('#team_comment_<%= @team_comment_room.id %>').html("<%= j(render partial: 'team_comments/team_comment', locals: {team_comment_room: @team_comment_room}) %>");

@@ -1,3 +1,4 @@
+<!-- カレンダー表示、新規イベント作成ページ -->
 <h3>予定を追加</h3>  
 <%= form_for @event, url: "/users/#{current_user.id}/events", method: :post do |f| %>
 <%= render 'layouts/error_messages', model: f.object %>
@@ -11,5 +12,6 @@
 <%= f.datetime_select :end_date %><br>
 <%= f.submit "追加" %>
 <% end %>
+<!-- ↓の一文によりカレンダー表示 -->
 <div class="calendar" id="calendar"></div>
 <%= link_to "マイページに戻る", user_path(current_user.id), class: "btn btn-primary" %>

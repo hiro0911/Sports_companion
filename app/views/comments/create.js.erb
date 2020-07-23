@@ -1,2 +1,4 @@
+// コメントの非同期通信
 $('#comment_<%= @comment_room.id %>').html("<%= j(render partial: 'comments/comment', locals: {comment_room: @comment_room}) %>");
+// コメント後フォームを空にする
 $('#comment_sentence').val('')

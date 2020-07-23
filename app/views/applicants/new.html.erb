@@ -1,13 +1,15 @@
+<!-- 新規チーム加入申請ページ -->
 <div class="container">
 	<div class="row">
 		<div class="col-12">
-			<h3 class="title">新規チーム加入</h3>
-			<%= render 'layouts/error_messages', model: @team_member %>
+			<h3 class="title">新規チーム加入申請</h3>
+			<!-- エラーメッセージがある場合表示	 -->
+			<%= render 'layouts/error_messages', model: @applicant %>
 			<%= attachment_image_tag @team, :image, fallback: "no_image.png", size: "300x300" %>
 			<h3 class="team_member_new">チーム名：<%= @team.team_name %></h3>
-			<h3>このチームに加入します</h3>
+			<h3>このチームに加入申請します</h3>
 			<h3>よろしいですか？</h3>
-			<%= link_to "はい",  team_team_members_path(@team), method: :post, class: "btn btn-success btn-yes" %>
+			<%= link_to "はい",  "/teams/#{@team.id}/applicants", method: :post, class: "btn btn-success btn-yes" %>
 			<%= link_to "いいえ", prefecture_sport_teams_path(@team.prefecture_id, @team.sport_id), class: "btn btn-primary btn-no" %>
 		</div>
 	</div>

@@ -1,7 +1,9 @@
+<!-- 新規お問い合わせページ -->
 <div class="container">
 	<div class="row">
 		<div class="col-10">
 			<%= form_for @inquiry, url: "/inquiry/confirm", method: :get do |f| %>
+			<!-- エラー時にメッセージ表示 -->
 			<%= render 'layouts/error_messages', model: f.object %>
 			<div class="page-header">
 				<h3 class="title">お問い合わせ</h3>

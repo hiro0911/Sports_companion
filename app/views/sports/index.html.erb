@@ -2,9 +2,11 @@
 	<h3 class="title">スポーツを選択してください</h3>
 	<div class="row">
 			<% @sports.each do |sport| %>
+				<!-- 都道府県を選択してるのはチーム募集ページのみ。コメントページとリンク先を分ける -->
 				<% unless params[:prefecture_id] %>
 				<div class="col-6 sports-contents">
 				<%= link_to "/sports/#{sport.id}/comment_rooms" do %>
+				<!-- carrierwaveによる画像表示 -->
 				<%= image_tag sport.image_id.to_s, size: "200x200" %>
 				<%= sport.sport_genre %>
 			  </div>

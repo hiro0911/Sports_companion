@@ -1,5 +1,8 @@
-				<% if current_user.already_liked?(comment) %>
-				<%= link_to comment.liked_users.count, "/comments/#{comment.id}/likes", method: :delete, remote: true, class: "fas fa-heart" %>
-				<% else %>
-				<%= link_to comment.liked_users.count, comment_likes_path(comment), method: :post, remote: true, class: "far fa-heart" %>
-				<% end %>
+<!-- いいねの部分テンプレート -->
+<% if current_user.already_liked?(comment) %>
+<!-- 非同期通信の設定	 -->
+<%= link_to comment.liked_users.count, "/comments/#{comment.id}/likes", method: :delete, remote: true, class: "fas fa-heart like_heart" %>
+<% else %>
+<!-- 非同期通信の設定 -->
+<%= link_to comment.liked_users.count, comment_likes_path(comment), method: :post, remote: true, class: "far fa-heart" %>
+<% end %>

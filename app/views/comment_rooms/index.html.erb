@@ -1,3 +1,4 @@
+<!-- コメントルーム一覧ページ -->
 <div class="container">
 	<div class="row">
 		<div class="col">
@@ -6,10 +7,11 @@
 			<table class="table">
 				<% @comment_rooms.each do |room| %>
 				<tr>
-					<td><%= link_to room.title, "/comment_rooms/#{room.id}/comments"  %></td>
+					<td><%= link_to room.title, "/comment_rooms/#{room.id}/comments" %></td>
 				</tr>
 				<% end %>
 			</table>
+			<!-- kaminariによるページネーション -->
 			<%= paginate @comment_rooms %>
 		</div>
 	</div>
