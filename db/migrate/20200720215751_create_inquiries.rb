@@ -3,7 +3,7 @@ class CreateInquiries < ActiveRecord::Migration[5.2]
     create_table :inquiries do |t|
       t.string :name
       t.string :message
-
+      t.string :email
       t.timestamps
     end
   end

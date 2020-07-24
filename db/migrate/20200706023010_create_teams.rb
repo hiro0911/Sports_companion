@@ -7,7 +7,8 @@ class CreateTeams < ActiveRecord::Migration[5.2]
     	t.string :area, null: false
     	t.string :team_name, null: false
     	t.text :information
-
+      t.string :stance
+      t.text :explanation
       t.timestamps
     end
   end

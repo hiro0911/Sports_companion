@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_23_182234) do
+ActiveRecord::Schema.define(version: 2020_07_23_173800) do
 
   create_table "applicants", force: :cascade do |t|
     t.integer "user_id"
@@ -23,9 +23,9 @@ ActiveRecord::Schema.define(version: 2020_07_23_182234) do
 
   create_table "comment_rooms", force: :cascade do |t|
     t.integer "sport_id"
+    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "title", null: false
     t.index ["sport_id"], name: "index_comment_rooms_on_sport_id"
   end
 
@@ -44,18 +44,18 @@ ActiveRecord::Schema.define(version: 2020_07_23_182234) do
     t.string "body"
     t.datetime "start_date"
     t.datetime "end_date"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "inquiries", force: :cascade do |t|
     t.string "name"
     t.string "message"
+    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -70,10 +70,10 @@ ActiveRecord::Schema.define(version: 2020_07_23_182234) do
   create_table "messages", force: :cascade do |t|
     t.integer "user_id"
     t.integer "room_id"
+    t.text "content", null: false
+    t.string "title", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "content"
-    t.string "title"
     t.index ["room_id"], name: "index_messages_on_room_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
@@ -93,13 +93,14 @@ ActiveRecord::Schema.define(version: 2020_07_23_182234) do
 
   create_table "sports", force: :cascade do |t|
     t.string "sport_genre", null: false
+    t.string "image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image_id"
   end
 
   create_table "team_comment_rooms", force: :cascade do |t|
     t.integer "team_id"
+    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["team_id"], name: "index_team_comment_rooms_on_team_id"
@@ -107,12 +108,10 @@ ActiveRecord::Schema.define(version: 2020_07_23_182234) do
 
   create_table "team_comments", force: :cascade do |t|
     t.integer "team_comment_room_id"
+    t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "content", null: false
-    t.integer "user_id"
     t.index ["team_comment_room_id"], name: "index_team_comments_on_team_comment_room_id"
-    t.index ["user_id"], name: "index_team_comments_on_user_id"
   end
 
   create_table "team_members", force: :cascade do |t|
@@ -131,11 +130,11 @@ ActiveRecord::Schema.define(version: 2020_07_23_182234) do
     t.string "area", null: false
     t.string "team_name", null: false
     t.text "information"
+    t.string "stance"
+    t.text "explanation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "prefecture_id"
-    t.string "stance"
-    t.text "explanation"
     t.index ["prefecture_id"], name: "index_teams_on_prefecture_id"
     t.index ["sport_id"], name: "index_teams_on_sport_id"
   end
@@ -151,17 +150,17 @@ ActiveRecord::Schema.define(version: 2020_07_23_182234) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
+    t.string "token"
+    t.string "meta"
+    t.string "provider"
+    t.string "uid"
+    t.string "nicname"
     t.string "name", null: false
     t.integer "age"
     t.integer "sex"
+    t.text "introduction"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "introduction"
-    t.string "provider"
-    t.string "uid"
-    t.string "token"
-    t.string "meta"
-    t.string "nicname"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
