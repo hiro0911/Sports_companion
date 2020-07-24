@@ -2,11 +2,12 @@
 <div class="container">
 	<div class="row">
 		<div class="col-12">
-				<h3>チーム@team.team_nameの連絡事項編集ページです。</h3>
+				<h3>チーム<%= @team.team_name %>の連絡事項編集ページです。</h3>
 				<%= form_for @team do |f| %>
 				<%= f.text_area :information, size: "80x15" %>
 				<%= f.submit "変更を保存する", class: "btn btn-primary" %>
 				<% end %>
+				<%= link_to "コミュニティページに戻る", "/team_comment_rooms/#{@team.id}", class: "btn btn-primary" %>
 		</div>
 	</div>
 </div>

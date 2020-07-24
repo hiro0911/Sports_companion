@@ -9,7 +9,11 @@
 			<table class="table">
 				<% @messages.each do |message| %>
 				<tr>
-						<td><%= message.user.name %></td>
+						<td>
+							<%= link_to user_path(message.user.id) do %>
+							<%= message.user.name %>
+							<% end %>
+						</td>
 						<td>
 							<%= link_to user_message_path(user_id: message.user.id, id: message.id) do %>
 							<%= message.title %>
@@ -19,6 +23,7 @@
 				</tr>
 				<% end %>
 			</table>
+			<%= link_to "マイページに戻る", user_path(current_user), class: "btn btn-primary" %>
 		</div>
 	</div>
 </div>

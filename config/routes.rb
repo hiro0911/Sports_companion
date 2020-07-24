@@ -47,7 +47,6 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'inquiry/new', to: 'inquiry#new'
   get 'inquiry/confirm', to: 'inquiry#confirm'
   get 'inquiry/thanks', to: 'inquiry#thanks'
   resources :inquiry, only: [:new, :create]

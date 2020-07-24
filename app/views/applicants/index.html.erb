@@ -12,7 +12,7 @@
 							<%= applicant.user.name %>
 							<% end %>
 						</td>
-						<td><%= link_to "チーム加入許可", "/teams/#{applicant.team.id}/applicants/#{applicant.id}", method: :post, class: "btn btn-success" %></td>
+						<td><%= link_to "チーム加入許可", "/teams/#{applicant.team.id}/applicants/#{applicant.id}", method: :post, data: { confirm: "#{applicant.user.name}さんがチームに加入します。よろしいですか？"}, class: "btn btn-success" %></td>
 						<td><%= link_to "チーム加入拒否", "/teams/#{applicant.team.id}/applicants/#{applicant.id}", data:{confirm: "本当に拒否しますか？"},method: :delete, class: "btn btn-danger" %></td>
 					</tr>
 				</table>

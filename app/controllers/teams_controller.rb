@@ -26,7 +26,8 @@ class TeamsController < ApplicationController
   def update
     @team = Team.find(params[:id])
     if @team.update(team_params)
-      redirect_to team_path(@team.id), notice: "チーム情報を更新しました。"
+      path = Rails.application.routes.recognize_path(request.referer)
+      redirect_to path, notice: "チーム情報を更新しました。"
     else
       render "edit"
     end

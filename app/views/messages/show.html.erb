@@ -12,6 +12,7 @@
 				</tr>
 			</table>
 			<%= link_to "返信する", new_user_message_path(user_id: @message.user.id), class: "btn btn-primary" %>
+			<%= link_to "戻る", room_path(@message.room_id), class: "btn btn-primary" %>
 		</div>
 	</div>	
 </div>

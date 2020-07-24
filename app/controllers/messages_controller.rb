@@ -10,7 +10,8 @@ class MessagesController < ApplicationController
     @message.user_id = current_user.id
     @message.room_id = @user.id
     @message.save
-    redirect_to user_path(@user), notice: "メッセージを送信しました。"
+    path = Rails.application.routes.recognize_path(request.referer)
+    redirect_to path, notice: "メッセージを送信しました。"
   end
 
   def show

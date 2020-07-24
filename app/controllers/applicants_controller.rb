@@ -33,7 +33,8 @@ class ApplicantsController < ApplicationController
   def destroy
     @applicant = Applicant.find(params[:id])
     @applicant.destroy
-    redirect_to team_applicants_path(team_id: @applicant.team), notice: "チーム加入を拒否しました。"
+    path = Rails.application.routes.recognize_path(request.referer)
+    redirect_to path, notice: "チーム加入を取り消しました。"
   end
 
   def applicant_params
