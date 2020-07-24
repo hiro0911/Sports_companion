@@ -1,8 +1,8 @@
 class CommentsAddTable < ActiveRecord::Migration[5.2]
   def change
   	  create_table :comments do |t|
-    	t.references :user, foreign_key: true
-    	t.references :comment_room, foreign_key: true
+    	t.integer :user_id
+    	t.integer :comment_room_id
     	t.text :sentence
 
       t.timestamps

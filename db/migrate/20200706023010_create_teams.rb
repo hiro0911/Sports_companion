@@ -1,7 +1,8 @@
 class CreateTeams < ActiveRecord::Migration[5.2]
   def change
     create_table :teams do |t|
-    	t.references :sport, foreign_key: true
+    	t.integer :sport_id
+      t.integer :prefecture_id
     	t.string :image_id
     	t.integer :applicant
     	t.string :area, null: false
