@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
   resources :teams, except: [:index, :new, :create] do
     resources :applicants, except: [:show]
-    resources :team_members, only: [:index, :destroy, :new,]
+    resources :team_members, only: [:index, :destroy, :new]
     post "applicants/:id", to: "team_members#create"
     get "applicants/thanks", to: "applicants#thanks" # チーム加入確定画面
   end
@@ -47,10 +47,10 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'inquiry/new', to: 'inquiry#new' # 入力画面
-  get  'inquiry/confirm', to: 'inquiry#confirm' # 確認画面
-  get  'inquiry/thanks', to: 'inquiry#thanks' # 送信完了画面
+  get 'inquiry/new', to: 'inquiry#new'
+  get 'inquiry/confirm', to: 'inquiry#confirm'
+  get 'inquiry/thanks', to: 'inquiry#thanks'
+  resources :inquiry, only: [:new, :create]
 
-  
-  resources :rooms, only:[:show, :create]
+  resources :rooms, only: [:show, :create]
 end

@@ -9,12 +9,15 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    unless @user == current_user
+      redirect_to "/", notice: "権限がありません。"
+    end
   end
 
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to user_path(current_user)
+      redirect_to user_path(current_user), notice: "ユーザー情報を更新しました。"
     else
       render "edit"
     end
@@ -23,7 +26,7 @@ class UsersController < ApplicationController
   def out
     @user = current_user
     @user.destroy
-    redirect_to("/")
+    redirect_to "/", nocite: "ユーザー情報を削除しました。"
   end
 
   private

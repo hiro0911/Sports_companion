@@ -1,6 +1,7 @@
 <!-- イベント編集ページ -->
 <h3>予定を追加</h3>  
 <%= form_for @event, url: "/users/#{current_user.id}/events/#{params[:id]}", method: :patch do |f| %>
+<%= render 'layouts/error_messages', model: f.object %>
 <%= f.label :title, "予定" %>
 <%= f.text_field :title %><br>
 <%= f.label :body, "説明" %>

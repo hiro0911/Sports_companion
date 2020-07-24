@@ -31,7 +31,7 @@
 				</tr>
 				<tr>
 					<th>自己紹介</th>
-					<td><%= @user.introduction %></td>
+					<td><%= simple_format(@user.introduction) %></td>
 				</tr>
 				<tr>
 					<th>いいねをもらった数</th>
@@ -41,7 +41,7 @@
 			<!-- @userが現在のユーザーの場合 -->
 			<% if @user.id == current_user.id %>
 					<%= link_to "編集する", edit_user_path(current_user), class: "btn btn-primary" %>
-					<%= link_to "カレンダーを表示する", user_events_path(current_user), class: "btn btn-primary" %>
+					<%= link_to "カレンダーを表示する", user_events_path(user_id: current_user.id), class: "btn btn-primary" %>
 					<%= link_to "メッセージを見る", room_path(@room.id), class: "btn btn-primary" %>
 		</div>
 		<div class="row">		

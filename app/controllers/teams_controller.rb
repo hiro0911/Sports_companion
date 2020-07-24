@@ -18,12 +18,15 @@ class TeamsController < ApplicationController
 
   def edit
     @team = Team.find(params[:id])
+    unless @team.users.include?(current_user)
+      redirect_to "/", notice: "権限がありません。"
+    end
   end
 
   def update
     @team = Team.find(params[:id])
     if @team.update(team_params)
-      redirect_to team_path(@team.id)
+      redirect_to team_path(@team.id), notice: "チーム情報を更新しました。"
     else
       render "edit"
     end
@@ -34,7 +37,7 @@ class TeamsController < ApplicationController
     if @team.save
       TeamCommentRoom.create!(team_id: @team.id, id: @team.id)
       TeamMember.create!(user_id: current_user.id, team_id: @team.id)
-      redirect_to prefecture_sport_teams_path
+      redirect_to prefecture_sport_teams_path, notice: "チームを作成しました。"
     else
       render "new"
     end
@@ -43,12 +46,15 @@ class TeamsController < ApplicationController
   def information
     @team = Team.find(params[:id])
     @team_comment_room = TeamCommentRoom.find_by(team_id: @team.id)
+    unless @team.users.include?(current_user)
+      redirect_to "/", notice: "権限がありません。"
+    end
   end
 
   def destroy
-  	@team = Team.find(params[:id])
-  	@team.destroy
-  	redirect_to prefecture_sport_teams_path(prefecture_id: @team.prefecture_id, sport_id: @team.sport_id)
+    @team = Team.find(params[:id])
+    @team.destroy
+    redirect_to prefecture_sport_teams_path(prefecture_id: @team.prefecture_id, sport_id: @team.sport_id), notice: "チームを削除しました。"
   end
 
   private

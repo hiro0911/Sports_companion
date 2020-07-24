@@ -2,7 +2,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-10">
-			<%= form_for @inquiry, url: "/inquiry/confirm", method: :get do |f| %>
+			<%= form_with model: @inquiry, url: "/inquiry/confirm", method: :get, local: true do |f| %>
 			<!-- エラー時にメッセージ表示 -->
 			<%= render 'layouts/error_messages', model: f.object %>
 			<div class="page-header">

@@ -10,26 +10,33 @@ class EventsController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:user_id])
+    unless @user == current_user
+      redirect_to "/", notice: "権限がありません。"
+    end
   end
 
   def create
     @event = Event.new(event_params)
     @event.user_id = current_user.id
     if @event.save
-      redirect_to user_events_path(@event.user_id)
+      redirect_to user_events_path(@event.user_id), notice: "予定を追加しました。"
     else
       render "index"
     end
   end
 
   def update
-    @event.update(event_params)
-    redirect_to user_event_path(user_id: @event.user_id)
+    if @event.update(event_params)
+      redirect_to user_event_path(user_id: @event.user_id), notice: "予定を更新しました。"
+    else
+      render "edit"
+    end
   end
 
   def destroy
     @event.destroy
-    redirect_to user_events_path(@event.user_id)
+    redirect_to user_events_path(@event.user_id), notice: "予定を削除しました。"
   end
 
   private

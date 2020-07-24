@@ -22,7 +22,7 @@
 			</tr>
 		  </table>
 		  <%= link_to "この予定を編集", edit_user_event_path(current_user.id), class: "btn btn-primary" %>
-			<%= link_to "この予定を削除", "/users/#{current_user.id}/events/#{params[:id]}", method: :delete, class: "btn btn-danger"  %>
+			<%= link_to "この予定を削除", "/users/#{current_user.id}/events/#{params[:id]}", method: :delete, data:{confirm: "本当に削除しますか？"}, class: "btn btn-danger"  %>
 		  <%= link_to "戻る", "/users/#{current_user.id}/events", class: "btn btn-primary" %>
 		</div>
 	</div>

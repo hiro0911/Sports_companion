@@ -25,5 +25,4 @@ class ApplicantsControllerTest < ActionDispatch::IntegrationTest
     get applicants_new_url
     assert_response :success
   end
-
 end

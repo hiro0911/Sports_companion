@@ -22,7 +22,7 @@ class CommentRoomsController < ApplicationController
     @sport = Sport.find(params[:sport_id])
     @comment_room.sport_id = @sport.id
     if @comment_room.save
-      redirect_to "/sports/#{@sport.id}/comment_rooms"
+      redirect_to "/sports/#{@sport.id}/comment_rooms", notice: "コメントルームを作成しました。"
     else
       render "new"
     end

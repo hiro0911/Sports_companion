@@ -6,6 +6,7 @@ class TeamCommentsController < ApplicationController
     @team_comment = TeamComment.new(team_comment_params)
     @team_comment.user_id = current_user.id
     @team_comment.save
+    # 非同期通信によりリダイレクトなし
   end
 
   def destroy
@@ -14,6 +15,7 @@ class TeamCommentsController < ApplicationController
     @team_comments = TeamComment.where(team_comment_room_id: @team_comment_room.id).page(params[:page]).reverse_order.per(20)
     @team_comment = TeamComment.find(params[:id])
     @team_comment.destroy
+    # 非同期通信によりリダイレクトなし
   end
 
   private
