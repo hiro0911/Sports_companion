@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
-  # ログイン済かの確認
+  # 未ログインの場合ログイン画面へ遷移
   before_action :authenticate_user!, except: [:top, :about]
 
   protected
