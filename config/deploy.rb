@@ -2,7 +2,7 @@
 lock "~> 3.14.1"
 
 set :application, "Sports_companion"
-set :repo_url, "git@github.com:hiro0911/Sports-companion.git"
+set :repo_url, "git@github.com:hiro0911/Sports_companion.git"
 set :deploy_to, "/home/ec2-user/Sports_companion"
 set :rbenv_ruby, '2.5.7'
 set :linked_files, %w{config/master.key .env}
