@@ -1,15 +1,18 @@
 <!-- チームメンバー募集一覧ページ -->
 <div class="container">
 	<div class="row">
-		<div class="col-10">
-			<div class="title">
-				<h3><%= @prefecture.content %></h3>		
-				<h3><%= @sport.sport_genre %></h3>
-				<h3>チームメンバー募集一覧</h3>
-			</div>
+		<table class="table">
+		<div class="title">
+			<h3><%= @prefecture.content %></h3>		
+			<h3><%= @sport.sport_genre %></h3>
+			<h3>チームメンバー募集一覧</h3>
 			<%= link_to "新規チーム作成", new_prefecture_sport_team_path, class: "btn btn-primary team-btn" %>
+		</div>
+		</table>
+		<% @teams.each do |team| %>
+		<div class="col-6">
+
 			<div></div>
-			<% @teams.each do |team| %>
 			<table class="table">
 				<%= link_to team_path(team) do %>
 				<!-- refileによる画像表示 -->
@@ -39,9 +42,9 @@
 					</td>
 				</tr>	
 			</table>
+		</div>
 			<% end %>
 			<!-- kaminariによるページネーション	 -->
 			<%= paginate @teams %>
-		</div>
 	</div>
 </div>
