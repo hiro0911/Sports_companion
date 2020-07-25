@@ -8,7 +8,7 @@
 			<%= form_for @team do |f| %>
 			<!-- エラーメッセージがある場合表示 -->
 			<%= render 'layouts/error_messages', model: f.object %>
-			<td><%= attachment_image_tag @team, :image, :fill, 300, 300, fallback: "no_image.png", size: "300x300" %></td>
+			<td><%= attachment_image_tag @team, :image, :fill, 300, 300, fallback: "no_image.png", size: "200x200" %></td>
 			</tr>
 			<tr>
 			<td><%= f.attachment_field :image %></td>

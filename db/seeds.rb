@@ -5,30 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Sport.create!(
-	sport_genre: "バスケットボール",
-	image_id: open("./app/assets/images/sports-001.jpg")
-)
-Sport.create!(
-	sport_genre: "サッカー",
-	image_id: open("./app/assets/images/sports-002.jpg")
-)
-Sport.create!(
-	sport_genre: "野球",
-	image_id: open("./app/assets/images/sports-003.jpg")
-)
-Sport.create!(
-	sport_genre: "テニス",
-	image_id: open("./app/assets/images/sports-004.jpg")
-)
-Sport.create!(
-	sport_genre: "バレーボール",
-	image_id: open("./app/assets/images/sports-005.jpg")
-)
-Sport.create!(
-	sport_genre: "ランニング",
-	image_id: open("./app/assets/images/sports-006.jpg")
-)
+
 
 47.times do |n|
   Prefecture.create!(content: n + 1)
@@ -69,12 +46,6 @@ Team.create!(
     )
  end
 User.create!(
-	email: "evergreen.0911@gmail.com",
-	name: "hiro",
-	password: "111111",
-	age: 27,
-	sex: 1)
-User.create!(
 	email: "evergreen.0911@gmail.com1",
 	name: "runa",
 	password: "111111",
@@ -86,16 +57,16 @@ User.create!(
 		team_id: 1)
 end
 TeamMember.create!(
-	user_id: 11,
+	user_id: 1,
 	team_id: 1)
 TeamMember.create!(
-	user_id: 11,
+	user_id: 1,
 	team_id: 2)
 TeamMember.create!(
 	user_id: 12,
 	team_id: 2)
 TeamMember.create!(
-	user_id: 11,
+	user_id: 1,
 	team_id: 3)
 Applicant.create!(
 	user_id: 12,

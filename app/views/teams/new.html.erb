@@ -11,6 +11,8 @@
 					<td><%= attachment_image_tag @team, :image, :fill, 300, 300, fallback: "no_image.png", size: "300x300" %></td>
 				</tr>
 				<tr>
+					<!--direct true→直接アップロード
+				presigned true→サーバー介さず -->
 					<td><%= f.attachment_field :image, direct: true, presigned: true %></td>
 				</tr>
 			</table>

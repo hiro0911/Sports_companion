@@ -77,7 +77,6 @@ gem 'font-awesome-sass', '~> 5.4.1'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'bootstrap', '~> 4.1.1'
-gem 'carrierwave'
 gem 'kaminari', '~> 1.2.1'
 gem 'rails-i18n'
 group :production do

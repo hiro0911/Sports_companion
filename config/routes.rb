@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   end
   delete "users/:id/out", to: "users#out" # 退会する
 
-  resources :sports, only: [:index]
+  resources :sports, only: [:index, :edit , :update, :new, :create]
 
   get "comment_rooms/:id/comments", to: "comment_rooms#show"
   get "sports/:sport_id/comment_rooms", to: "comment_rooms#index"
@@ -41,7 +41,7 @@ Rails.application.routes.draw do
   get "/team_comment_rooms/:team_comment_room_id", to: "team_comment_rooms#show"
   get "/team_comment_rooms/:team_comment_room_id/team_comments", to: "team_comment_rooms#show"
 
-  resources :prefectures, only: [:index] do
+  resources :prefectures, only: [:index, :edit, :update, :new, :create] do
     resources :sports, only: [:index] do
       resources :teams, only: [:index, :new, :create]
     end
