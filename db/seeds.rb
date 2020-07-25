@@ -7,27 +7,27 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Sport.create!(
 	sport_genre: "バスケットボール",
-	image_id: open("./app/assets/images/sports-001.jpg")
+	image_id: open("./public/assets/images/sports-001.jpg")
 )
 Sport.create!(
 	sport_genre: "サッカー",
-	image_id: open("./app/assets/images/sports-002.jpg")
+	image_id: open("./public/assets/images/sports-002.jpg")
 )
 Sport.create!(
 	sport_genre: "野球",
-	image_id: open("./app/assets/images/sports-003.jpg")
+	image_id: open("./public/assets/images/sports-003.jpg")
 )
 Sport.create!(
 	sport_genre: "テニス",
-	image_id: open("./app/assets/images/sports-004.jpg")
+	image_id: open("./public/assets/images/sports-004.jpg")
 )
 Sport.create!(
 	sport_genre: "バレーボール",
-	image_id: open("./app/assets/images/sports-005.jpg")
+	image_id: open("./public/assets/images/sports-005.jpg")
 )
 Sport.create!(
 	sport_genre: "ランニング",
-	image_id: open("./app/assets/images/sports-006.jpg")
+	image_id: open("./public/assets/images/sports-006.jpg")
 )
 
 47.times do |n|

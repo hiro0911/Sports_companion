@@ -17,8 +17,6 @@ ActiveRecord::Schema.define(version: 2020_07_23_173800) do
     t.integer "team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["team_id"], name: "index_applicants_on_team_id"
-    t.index ["user_id"], name: "index_applicants_on_user_id"
   end
 
   create_table "comment_rooms", force: :cascade do |t|
@@ -26,7 +24,6 @@ ActiveRecord::Schema.define(version: 2020_07_23_173800) do
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["sport_id"], name: "index_comment_rooms_on_sport_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -35,8 +32,6 @@ ActiveRecord::Schema.define(version: 2020_07_23_173800) do
     t.text "sentence"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["comment_room_id"], name: "index_comments_on_comment_room_id"
-    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -47,7 +42,6 @@ ActiveRecord::Schema.define(version: 2020_07_23_173800) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "inquiries", force: :cascade do |t|
@@ -63,8 +57,6 @@ ActiveRecord::Schema.define(version: 2020_07_23_173800) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["comment_id"], name: "index_likes_on_comment_id"
-    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -74,8 +66,6 @@ ActiveRecord::Schema.define(version: 2020_07_23_173800) do
     t.string "title", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["room_id"], name: "index_messages_on_room_id"
-    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "prefectures", force: :cascade do |t|
@@ -88,7 +78,6 @@ ActiveRecord::Schema.define(version: 2020_07_23_173800) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_rooms_on_user_id"
   end
 
   create_table "sports", force: :cascade do |t|
@@ -103,15 +92,14 @@ ActiveRecord::Schema.define(version: 2020_07_23_173800) do
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["team_id"], name: "index_team_comment_rooms_on_team_id"
   end
 
   create_table "team_comments", force: :cascade do |t|
+    t.integer "user_id"
     t.integer "team_comment_room_id"
     t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["team_comment_room_id"], name: "index_team_comments_on_team_comment_room_id"
   end
 
   create_table "team_members", force: :cascade do |t|
@@ -119,12 +107,11 @@ ActiveRecord::Schema.define(version: 2020_07_23_173800) do
     t.integer "team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["team_id"], name: "index_team_members_on_team_id"
-    t.index ["user_id"], name: "index_team_members_on_user_id"
   end
 
   create_table "teams", force: :cascade do |t|
     t.integer "sport_id"
+    t.integer "prefecture_id"
     t.string "image_id"
     t.integer "applicant"
     t.string "area", null: false
@@ -134,9 +121,6 @@ ActiveRecord::Schema.define(version: 2020_07_23_173800) do
     t.text "explanation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "prefecture_id"
-    t.index ["prefecture_id"], name: "index_teams_on_prefecture_id"
-    t.index ["sport_id"], name: "index_teams_on_sport_id"
   end
 
   create_table "users", force: :cascade do |t|
