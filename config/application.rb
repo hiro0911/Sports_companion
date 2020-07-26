@@ -19,5 +19,8 @@ module SportsCompanion
     config.time_zone = 'Tokyo'
     # エラーメッセージを日本語にする
     config.i18n.default_locale = :ja
+
+
+
   end
 end

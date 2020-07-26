@@ -86,8 +86,3 @@ gem 'rails-i18n'
 group :production do
   gem 'mysql2'
 end
-
-
-group :production, :staging do
-  gem 'unicorn'
-end
