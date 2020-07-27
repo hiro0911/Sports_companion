@@ -4,32 +4,36 @@
 		<div class="col-10">
 			<%= link_to "スポーツジャンル追加", new_sport_path, class: "btn btn-primary" %>
 		</div>
-			<% @sports.each do |sport| %>
-				<!-- 都道府県を選択してるのはチーム募集ページのみ。コメントページとリンク先を分ける -->
-				<% unless params[:prefecture_id] %>
-				<div class="col-6 sports-contents">
-				<%= link_to "/sports/#{sport.id}/comment_rooms" do %>
-				<table class="table">
-
+		<% @sports.each do |sport| %>
+		<!-- 都道府県を選択してるのはチーム募集ページのみ。コメントページとリンク先を分ける -->
+		<% unless params[:prefecture_id] %>
+		<div class="col-6 sports-contents">
+			<%= link_to "/sports/#{sport.id}/comment_rooms" do %>
+			<table class="table">
 				<%= attachment_image_tag sport, :image, size: "300x300", fallback: "no_image.png", size: "300x300", class: "team_image" %>
 				<tr>
-				<td><%= sport.sport_genre %></td>
-			</tr>
-			<tr>
-				<td><%= link_to "編集", edit_sport_path(sport), class: "btn btn-primary" %></td>
-			</tr>
+					<td><%= sport.sport_genre %></td>
+				</tr>
+				<tr>
+					<td><%= link_to "編集", edit_sport_path(sport), class: "btn btn-primary" %></td>
+				</tr>
 			</table>
-			  </div>
-				<% end %>
-				<% else %>
-				<div class="col-6 sports-contents">
-				<%= link_to prefecture_sport_teams_path(sport_id: sport.id) do %>
+		</div>
+		<% end %>
+		<% else %>
+		<div class="col-6 sports-contents">
+			<%= link_to prefecture_sport_teams_path(sport_id: sport.id) do %>
+			<table>
 				<%= attachment_image_tag sport, :image, size: "300x300", fallback: "no_image.png", size: "300x300", class: "team_image" %>
-				<%= sport.sport_genre %>
-				<%= link_to "編集", edit_sport_path(sport), class: "btn btn-primary" %>
-			  </div>
-				<% end %>
-				<% end %>
+				<tr>
+					<td><%= sport.sport_genre %></td>
+				</tr>
+				<tr>
+					<td><%= link_to "編集", edit_sport_path(sport), class: "btn btn-primary" %></td>
+				</tr>
+			</div>
+			<% end %>
+			<% end %>
 			<% end %>
 		</div>
 	</div>
