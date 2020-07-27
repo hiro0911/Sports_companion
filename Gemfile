@@ -84,5 +84,5 @@ gem 'bootstrap', '~> 4.1.1'
 gem 'kaminari', '~> 1.2.1'
 gem 'rails-i18n'
 group :production do
-  gem 'mysql2'
+  gem 'mysql'
 end
