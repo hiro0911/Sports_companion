@@ -23,7 +23,7 @@
 		<% else %>
 		<div class="col-6 sports-contents">
 			<%= link_to prefecture_sport_teams_path(sport_id: sport.id) do %>
-			<table>
+			<table class="table">
 				<%= attachment_image_tag sport, :image, size: "300x300", fallback: "no_image.png", size: "300x300", class: "team_image" %>
 				<tr>
 					<td><%= sport.sport_genre %></td>
@@ -31,10 +31,11 @@
 				<tr>
 					<td><%= link_to "編集", edit_sport_path(sport), class: "btn btn-primary" %></td>
 				</tr>
-			</div>
-			<% end %>
-			<% end %>
-			<% end %>
+			</table>
 		</div>
+		<% end %>
+		<% end %>
+		<% end %>
 	</div>
+</div>
 </div>

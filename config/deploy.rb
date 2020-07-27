@@ -2,7 +2,7 @@
 lock "~> 3.14.1"
 
 set :application, "Sports_companion"
-set :repo_url, "git@github.com:hiro0911/Sports_companion.git"
+set :repo_url, "https://github.com/hiro0911/Sports_companion"
 set :deploy_to, "/home/ec2-user/Sports_companion"
 set :rbenv_ruby, '2.5.7'
 set :linked_files, %w{config/master.key .env}
@@ -41,3 +41,11 @@ append :linked_dirs, "log", "public/system", "tmp"
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
+namespace :deploy do
+  task :restart_puma do
+    invoke  'puma:stop'
+    invoke! 'puma:start'
+  end
+end
+
+after 'deploy:finishing', 'deploy:restart_puma'

@@ -60,4 +60,12 @@
 #     # password: "please use keys"
 #   }
 server '52.199.168.23', user: 'ec2-user', roles: %w{app web db}
-
+set :puma_init_active_record, true
+set :puma_conf, "#{shared_path}/config/puma.production.rb"
+set :puma_state, "#{shared_path}/tmp/pids/puma.state"
+set :puma_pid, "#{shared_path}/tmp/pids/puma.pid"
+set :puma_conf, "#{shared_path}/config/puma.production.rb"
+set :puma_access_log, "#{release_path}/log/puma.access.log"
+set :puma_error_log, "#{release_path}/log/puma.error.log"
+set :puma_preload_app, true
+set :puma_worker_timeout, nil
