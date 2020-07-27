@@ -27,18 +27,18 @@ class User < ApplicationRecord
   end
 
   protected
-
-  # omniauthのコールバック時に呼ばれるメソッド
   def self.find_for_google(auth)
     user = User.find_by(email: auth.info.email)
-    # ユーザー登録してない場合ユーザー作成
-    user ||= User.create(name: auth.info.name,
+
+    unless user
+      user = User.create(name:     auth.info.name,
                          email: auth.info.email,
                          provider: auth.provider,
-                         uid: auth.uid,
-                         token: auth.credentials.token,
+                         uid:      auth.uid,
+                         token:    auth.credentials.token,
                          password: Devise.friendly_token[0, 20],
-                         meta: auth.to_yaml)
+                         meta:     auth.to_yaml)
+    end
     user
   end
 end
