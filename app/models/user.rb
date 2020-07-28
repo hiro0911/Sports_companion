@@ -17,8 +17,6 @@ class User < ApplicationRecord
   has_many :rooms
   has_many :messages
 
-  validates :name, presence: true
-
   enum sex: { 男性: 1, 女性: 2 }
 
   # いいねを既にしているかの確認
@@ -27,18 +25,17 @@ class User < ApplicationRecord
   end
 
   protected
+  # Google認証、登録済ならログイン、違うならば新規登録
   def self.find_for_google(auth)
     user = User.find_by(email: auth.info.email)
 
-    unless user
-      user = User.create(name:     auth.info.name,
+    user ||= User.create(name: auth.info.name,
                          email: auth.info.email,
                          provider: auth.provider,
-                         uid:      auth.uid,
-                         token:    auth.credentials.token,
+                         uid: auth.uid,
+                         token: auth.credentials.token,
                          password: Devise.friendly_token[0, 20],
-                         meta:     auth.to_yaml)
-    end
+                         meta: auth.to_yaml)
     user
   end
 end

@@ -9,6 +9,7 @@ class SportsController < ApplicationController
   def edit
     @sport = Sport.find(params[:id])
   end
+
   def update
     @sport = Sport.find(params[:id])
     @sport.update(sport_params)
@@ -18,6 +19,7 @@ class SportsController < ApplicationController
   def new
     @sport = Sport.new
   end
+
   def create
     @sport = Sport.new(sport_params)
     if @sport.save

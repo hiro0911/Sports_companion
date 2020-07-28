@@ -4,14 +4,16 @@
 		<div class="col-sx-12">
 			<h3 class="prefecture-title">都道府県を選択してください</h3>
 			<table class="table">
-			<% @prefectures.each do |prefecture| %>
-			<tr><td>
-			<%= link_to prefecture_sports_path(prefecture) do %>
-		  <%= prefecture.content %>
-		  <% end %>
-			</td></tr>
-			<% end %>
-		</table>
+				<% @prefectures.each do |prefecture| %>
+				<tr>
+					<td>
+						<%= link_to prefecture_sports_path(prefecture) do %>
+						<%= prefecture.content %>
+						<% end %>
+					</td>
+				</tr>
+				<% end %>
+			</table>
 		</div>
 	</div>
 </div>

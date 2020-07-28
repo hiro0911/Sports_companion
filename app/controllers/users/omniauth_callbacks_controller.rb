@@ -27,6 +27,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # def after_omniauth_failure_path_for(scope)
   #   super(scope)
   # end
+  # グーグル認証の設定
   def google
     @user = User.find_for_google(request.env['omniauth.auth'])
 

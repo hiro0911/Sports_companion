@@ -1,7 +1,7 @@
 class Like < ApplicationRecord
-  validates :comment_id, :user_id, presence: true
   belongs_to :comment
   belongs_to :user
-  # post_idとuser_idの組が1組だけ
+  # いいねの重複防止
   validates_uniqueness_of :comment_id, scope: :user_id
+  validates :comment_id, :user_id, presence: true
 end

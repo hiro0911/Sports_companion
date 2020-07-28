@@ -1,25 +1,20 @@
 <div class="container">
 	<div class="row">
 		<div class="col-6">
-			<h3>スポーツジャンル追加</h3>
+			<h3 class="title">スポーツジャンル追加</h3>
 			<%= form_with model: @sport, url: "/sports", method: :post do |f| %>
 			<table class="table">
+				<%= attachment_image_tag @sport, :image, size: "200x200", fallback: "no_image.png" %>
 				<tr>
-				<td><%= f.label :sport_genre, "スポーツ名" %></td>
-				<td><%= f.text_field :sport_genre %></td>
+					<td><%= f.attachment_field :image %></td>
 				</tr>
-				<!--direct true→直接アップロード
-				presigned true→サーバー介さず -->
 				<tr>
-				<td><%= attachment_image_tag @sport,:image, size: "200x200", fallback: "no_image.png" %></td>
-			  </tr>
-			  <tr>
-				<td><%= f.attachment_field :image, direct:true, presigned: true %></td>
+					<td><%= f.label :sport_genre, "スポーツ名" %></td>
+					<td><%= f.text_field :sport_genre %></td>
 				</tr>
-					<td>
-						<%= f.submit "作成" %>
-					</td>
-			</tr>
+				<tr>
+					<td><%= f.submit "更新", class: "btn btn-primary" %></td>
+				</tr>
 			</table>
 			<% end %>
 		</div>

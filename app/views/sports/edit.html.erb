@@ -1,12 +1,20 @@
 <div class="container">
 	<div class="row">
-		<div class="col-10">
-			<h3><%= @sport.id %><%= @sport.sport_genre %>画像編集</h3>
+		<div class="col-6">
+			<h3 class="title"><%= @sport.sport_genre %>画像編集</h3>
 			<%= form_with model: @sport, url: sport_path(@sport.id) do |f| %>
 			<table class="table">
-				<td><%= attachment_image_tag @sport, :image, size: "200x200", fallback: "no_image.png" %></td>
-				<td><%= f.attachment_field :image %></td>
-				<td><%= f.submit "更新" %></td>
+				<%= attachment_image_tag @sport, :image, size: "200x200", fallback: "no_image.png" %>
+				<tr>
+					<td><%= f.attachment_field :image %></td>
+				</tr>
+				<tr>
+					<td><%= f.label :sport_genre, "スポーツ名" %></td>
+					<td><%= f.text_field :sport_genre %></td>
+				</tr>
+				<tr>
+					<td><%= f.submit "更新", class: "btn btn-primary" %></td>
+				</tr>
 			</table>
 			<% end %>
 		</div>
