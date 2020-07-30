@@ -29,14 +29,14 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # end
   # グーグル認証の設定
   def google
-    @user = User.find_for_google(request.env.fetch("omniauth.auth"))
+    @user = User.find_for_google(request.env['omniauth.auth'])
 
     if @user.persisted?
       flash[:notice] = I18n.t 'devise.omniauth_callbacks.success', kind: 'Google'
       sign_in_and_redirect @user, event: :authentication
-      session[:user_id] = @user.id # add
+      session[:user_id] = @user.id #add
     else
-      session['devise.google_data'] = request.env.fetch("omniauth.auth")
+      session['devise.google_data'] = request.env['omniauth.auth']
       redirect_to new_user_registration_url
     end
   end

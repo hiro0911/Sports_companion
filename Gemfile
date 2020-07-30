@@ -77,8 +77,8 @@ gem 'dotenv-rails'
 gem 'ransack'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
-gem 'omniauth'
 gem 'omniauth-google-oauth2'
+gem 'omniauth'
 gem 'jp_prefecture'
 gem "sass-rails", "~>5.0"
 gem "jquery-ui-rails"
