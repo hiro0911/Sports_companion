@@ -4,7 +4,7 @@ class InquiryMailer < ApplicationMailer
     @inquiry = inquiry
     mail(
       to: ENV.fetch("MAIL_ADDRESS"),
-      subject: 'お問い合わせ通知'
+      subject: "お問い合わせ通知"
     ) 
   end
 end
