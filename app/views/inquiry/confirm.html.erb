@@ -3,7 +3,7 @@
 	<div class="row">
 		<div class="col-10">
 			<h3 class="title">お問い合わせ</h3>
-			<%= form_with  model: @inquiry, url: inquiry_thanks_path, method: :get, local: true do |f| %>
+			<%= form_with model: @inquiry, url: inquiry_index_path, method: :post, local: true do |f| %>
 			<table class="table">
 				<tr>
 					<th>名前</th>
