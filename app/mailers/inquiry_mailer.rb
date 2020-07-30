@@ -1,5 +1,4 @@
 class InquiryMailer < ApplicationMailer
-  default ENV.fetch("MAIL_ADDRESS")
   # お問い合わせ時のメール設定
   def send_mail(inquiry)
     @inquiry = inquiry
