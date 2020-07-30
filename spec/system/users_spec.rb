@@ -51,3 +51,30 @@ describe 'ユーザー認証のテスト' do
     end
   end
 end
+describe "マイページのテスト" do
+  context "表示の確認" do
+    it "マイページと表示される"
+      expect(page).to have_content("マイページ")
+    it "ニックネームが表示される" do
+    end
+    it "メールアドレスが表示される" do
+    end
+    it "年齢が表示される" do
+    end
+    it "性別が表示される" do
+    end
+    it "自己紹介が表示される" do
+    end
+    it "いいねをもらった数が表示される" do
+    end
+    it "編集する ボタンが表示される" do
+    end
+    it "カレンダーを表示する ボタンが表示される" do
+    end
+    it "メッセージを見る ボタンが表示される" do
+    end
+    it "マイチームと表示される" do
+    end
+    it "マイチームが表示される" do
+    end
+    it
