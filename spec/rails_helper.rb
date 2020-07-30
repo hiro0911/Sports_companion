@@ -33,7 +33,6 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 require 'devise'
-require File.expand_path("spec/support/controller_macros.rb")
 
 RSpec.configure do |config|
 
@@ -41,8 +40,6 @@ RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::Test::IntegrationHelpers, type: :request
   config.include Devise::TestHelpers, type: :controller
-  config.include ControllerMacros, type: :controller
-  config.extend AuthenticationMacros
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 

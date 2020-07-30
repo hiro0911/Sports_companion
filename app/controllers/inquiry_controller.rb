@@ -10,14 +10,9 @@ class InquiryController < ApplicationController
     end
   end
 
-  def create
-    # メール送信
+  def thanks
     @inquiry = Inquiry.new(inquiry_params)
     InquiryMailer.send_mail(@inquiry).deliver
-    redirect_to inquiry_thanks_path
-  end
-
-  def thanks
   end
 
   private

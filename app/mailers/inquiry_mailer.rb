@@ -6,8 +6,6 @@ class InquiryMailer < ApplicationMailer
     mail(
       to: ENV['MAIL_ADDRESS'],
       subject: 'お問い合わせ通知'
-    ) do |fomat|
-      fomat.text
-    end
+    ) 
   end
 end
