@@ -95,6 +95,13 @@ describe 'ユーザーのテスト' do
       end
     end
     context "マイチームの表示確認" do
+      let! (:sport) { create(:sport) }
+      let! (:prefecture) {create(:prefecture)}
+      let! (:team){create(:team, sport_id: sport.id,prefecture_id: prefecture.id)}
+      let! (:user){create(:user)}
+      let! (:room){create(:room, user_id: user.id)}
+      let! (:applicant){create(:applicant, user_id: user.id, team_id: team.id)}
+      let! (:team_member){create(:team_member,user_id: user.id, team_id: team.id)}
       before do
         visit user_path(user)
       end
@@ -102,34 +109,68 @@ describe 'ユーザーのテスト' do
         expect(page).to have_content "マイチーム"
       end
       it "マイチームが表示される" do
+        expect(page).to have_content(team_member.team.team_name)
       end
       it "チーム詳細ページ ボタンが表示される" do
+        expect(page).to have_link href: team_path(team_member.team)
       end
       it "チームを退会する ボタンが表示される" do
+        expect(page).to have_link href: team_team_member_path(team, team_member)
       end
-      it "加入申請中のチームと表示される" do 
+      it "加入申請中のチームと表示される" do
+        expect(page).to have_content "加入申請中のチーム" 
       end
       it "加入申請中のチームが表示される" do
+        expect(page).to have_content(applicant.team.team_name)
       end
       it "チーム詳細ページ ボタンが表示される" do
+        expect(page).to have_link href: team_path(applicant.team)
       end
       it "チーム加入取り消し ボタンが表示される" do
+        expect(page).to have_link href: "/teams/#{applicant.team.id}/applicants/#{applicant.id}"
       end
     end
     context "リンク先の確認" do
+      let! (:sport) { create(:sport) }
+      let! (:prefecture) {create(:prefecture)}
+      let! (:team){create(:team, sport_id: sport.id,prefecture_id: prefecture.id)}
+      let! (:user){create(:user)}
+      let! (:room){create(:room, user_id: user.id)}
+      let! (:applicant){create(:applicant, user_id: user.id, team_id: team.id)}
+      let! (:team_member){create(:team_member,user_id: user.id, team_id: team.id)}
+      let! (:team_comment_room){create(:team_comment_room,team_id: team.id)}
+      before do
+        visit user_path(user)
+      end
       it "編集する ボタンのリンク先が正しいか" do
+        click_on "編集する"
+        expect(current_path).to eq "/users/#{user.id}/edit"
       end
       it "カレンダーを表示する ボタンのリンク先が正しいか" do
+        click_on "カレンダーを表示する"
+        expect(current_path).to eq "/users/#{user.id}/events"
       end
       it "メッセージを見る ボタンのリンク先が正しいか" do
+        click_on "メッセージを見る"
+        expect(current_path).to eq "/rooms/#{user.id}"
       end
-      it "マイチーム チーム詳細ページ ボタンのリンク先が正しいか" do
+      it "マイチーム マイチーム詳細ページ ボタンのリンク先が正しいか" do
+        click_on "マイチーム詳細ページ"
+        @team_comment_room = team_comment_room
+        expect(current_path).to eq "/teams/#{team.id}"
       end
       it "マイチーム チームを退会する チーム退会できるか" do
+        click_on "チームを退会する"
+        expect(page).to have_content "チームを退会しました。"
       end
-      it "加入申請中のチーム チーム詳細 ボタンのリンク先が正しいか" do
+      it "加入申請中のチーム 加入申請中のチーム詳細ページ ボタンのリンク先が正しいか" do
+        click_on "加入申請中のチーム詳細ページ"
+        @team_comment_room = team_comment_room
+        expect(current_path).to eq "/teams/#{team.id}"
       end
       it "加入申請中のチーム チーム加入取り消し チーム加入申請取り消しできるか" do
+        click_on "チーム加入取り消し"
+        expect(page).to have_content "チーム加入を取り消しました。"
       end
     end
   end

@@ -11,8 +11,7 @@ describe 'トップページのテスト' do
   end
   context '表示の確認' do
     it 'チームメンバー募集へのリンクが表示される' do
-      expect(page).to have_link href: prefectures_path
-      
+      expect(page).to have_link href: prefectures_path  
     end
     it 'メッセージルームへのリンクが表示される' do
       expect(page).to have_link href: sports_path

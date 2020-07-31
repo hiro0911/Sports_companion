@@ -30,7 +30,7 @@ class TeamMembersController < ApplicationController
   def destroy
     @team_member = TeamMember.find(params[:id])
     @team_member.destroy
-    redirect_to user_path(current_user)
+    redirect_to user_path(current_user), notice: "チームを退会しました。"
   end
 
   def team_member_params
