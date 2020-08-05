@@ -34,10 +34,9 @@ class TeamsController < ApplicationController
         visions.each do |vision|
       # 不適切な画像である場合が高い又は非常に高い場合ブロック
           if vision.include?("VERY_LIKELY") || vision.include?("LIKELY")
-            flash[:notice] = "不適切な画像の為ブロックされました。" 
             @team.image = nil
             @team.save
-            return render "edit"
+            return redirect_to root_path, notice: "不適切な画像が投稿された為ブロックされました"
           end
         end
       end
@@ -58,9 +57,8 @@ class TeamsController < ApplicationController
         visions.each do |vision|
       # 不適切な画像である場合が高い又は非常に高い場合ブロック
           if vision.include?("VERY_LIKELY") || vision.include?("LIKELY")
-            flash[:notice] = "不適切な画像の為ブロックされました。" 
             @team.destroy
-            return render "new"
+            return redirect_to root_path, notice: "不適切な画像が投稿された為ブロックされました"
           end
         end
       end
