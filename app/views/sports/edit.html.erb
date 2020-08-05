@@ -2,7 +2,8 @@
 	<div class="row">
 		<div class="col-6">
 			<h3 class="title"><%= @sport.sport_genre %>画像編集</h3>
-			<%= form_with model: @sport, url: sport_path(@sport.id) do |f| %>
+			<%= form_with model: @sport, url: sport_path(@sport.id), method: :patch, local: true do |f| %>
+			<%= render 'layouts/error_messages', model: f.object %>
 			<table class="table">
 				<%= attachment_image_tag @sport, :image, size: "200x200", fallback: "no_image.png" %>
 				<tr>
@@ -12,10 +13,9 @@
 					<td><%= f.label :sport_genre, "スポーツ名" %></td>
 					<td><%= f.text_field :sport_genre %></td>
 				</tr>
-				<tr>
-					<td><%= f.submit "更新", class: "btn btn-primary" %></td>
-				</tr>
 			</table>
+			<%= f.submit "更新", class: "btn btn-primary" %>
+			<%= link_to "トップに戻る", root_path, class: "btn btn-primary" %>
 			<% end %>
 		</div>
 	</div>
