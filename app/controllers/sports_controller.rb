@@ -61,6 +61,12 @@ class SportsController < ApplicationController
     end
   end
 
+  def destroy
+    @sport = Sport.find(params[:id])
+    @sport.destroy
+    redirect_to root_path, notice: "スポーツジャンルを削除しました。"
+  end
+
   private
 
   def sport_params

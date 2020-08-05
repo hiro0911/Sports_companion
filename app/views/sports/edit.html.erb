@@ -16,6 +16,7 @@
 			</table>
 			<%= f.submit "更新", class: "btn btn-primary" %>
 			<%= link_to "トップに戻る", root_path, class: "btn btn-primary" %>
+			<%= link_to "スポーツジャンルを削除", "/sports/#{params[:id]}", method: :delete,data: { confirm: "【確認】スポーツジャンルを削除してもよろしいですか？" } , class: "btn btn-danger" %>
 			<% end %>
 		</div>
 	</div>

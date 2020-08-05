@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   end
   delete "users/:id/out", to: "users#out" # 退会する
 
-  resources :sports, only: [:index, :edit, :update, :new, :create]
+  resources :sports, except: [:show]
 
   get "comment_rooms/:id/comments", to: "comment_rooms#show"
   get "sports/:sport_id/comment_rooms", to: "comment_rooms#index"
