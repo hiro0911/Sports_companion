@@ -10,7 +10,7 @@
 		<div class="col-6 sports-contents">
 			<%= link_to "/sports/#{sport.id}/comment_rooms" do %>
 			<table class="table">
-				<%= attachment_image_tag sport, :image, size: "300x300", fallback: "no_image.png", size: "300x300", class: "team_image" %>
+				<%= attachment_image_tag sport, :image, size: "300x300", fallback: "no_image.png", class: "team_image" %>
 				<tr>
 					<td><%= sport.sport_genre %></td>
 				</tr>
@@ -24,7 +24,7 @@
 		<div class="col-6 sports-contents">
 			<%= link_to prefecture_sport_teams_path(sport_id: sport.id) do %>
 			<table class="table">
-				<%= attachment_image_tag sport, :image, size: "300x300", fallback: "no_image.png", size: "300x300", class: "team_image" %>
+				<%= attachment_image_tag sport, :image, size: "300x300", fallback: "no_image.png", class: "team_image" %>
 				<tr>
 					<td><%= sport.sport_genre %></td>
 				</tr>

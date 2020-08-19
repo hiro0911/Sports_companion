@@ -21,7 +21,6 @@ describe 'ユーザーのテスト' do
         fill_in 'user[password]', with: ''
         fill_in 'user[password_confirmation]', with: ''
         click_button '新規登録'
-
         expect(page).to have_content 'エラー'
       end
     end
@@ -57,7 +56,6 @@ describe 'ユーザーのテスト' do
       fill_in 'user[email]', with: user.email
       fill_in 'user[password]', with: user.password
       click_button 'ログイン'
-      visit user_path(user)
     end
     context "表示の確認" do
       before do
@@ -131,8 +129,8 @@ describe 'ユーザーのテスト' do
       end
     end
     context "リンク先の確認" do
-      let! (:sport) { create(:sport) }
-      let! (:prefecture) {create(:prefecture)}
+      let! (:sport){create(:sport)}
+      let! (:prefecture){create(:prefecture)}
       let! (:team){create(:team, sport_id: sport.id,prefecture_id: prefecture.id)}
       let! (:user){create(:user)}
       let! (:room){create(:room, user_id: user.id)}
