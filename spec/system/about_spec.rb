@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'トップページのテスト' do
+describe 'アバウトページのテスト' do
       let(:user) { create(:user) }
       before do
       visit new_user_session_path

@@ -28,7 +28,7 @@ class SportsController < ApplicationController
         end
       end
       path = Rails.application.routes.recognize_path(request.referer)
-      redirect_to path, notice: "スポーツをジャンル更新しました。"
+      redirect_to path, notice: "スポーツジャンルを更新しました。"
     else
       render "edit" 
     end
