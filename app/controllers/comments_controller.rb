@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     @comment.save
     # 非同期通信によりリダイレクトなし
+
   end
 
   def destroy
