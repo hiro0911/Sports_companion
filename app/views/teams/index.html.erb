@@ -16,7 +16,7 @@
 			<table class="table">
 				<%= link_to team_path(team) do %>
 				<!-- refileによる画像表示 -->
-				<%= attachment_image_tag team, :image, size: "300x300", fallback: "no_image.png", size: "300x300", class: "team_image" %>
+				<%= attachment_image_tag team, :image, size: "300x300", fallback: "no_image.png", class: "team_image" %>
 				<% end %>
 				<tr>
 					<td>チーム名</td>

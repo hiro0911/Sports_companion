@@ -34,6 +34,13 @@ describe "スポーツページのテスト" do
    		it '投稿スポーツ名が正しく表示される' do
    			expect(page).to have_content(sport.sport_genre)
    		end
+      it 'コメントルーム一覧のページが表示される' do
+        expect(page).to have_link href: "/sports/#{sport.id}/comment_rooms"
+      end
+      it 'チームメンバー募集へのリンクが表示される' do
+        visit "/prefectures/#{prefecture.id}/sports"
+        expect(page).to have_link href: "/prefectures/#{prefecture.id}/sports/#{sport.id}/teams"
+      end
    	end
   end
   describe 'スポーツジャンル追加ページのテスト' do
