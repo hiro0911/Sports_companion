@@ -48,8 +48,7 @@ describe "チームのテスト" do
 		end
 	end
 	describe 'チーム新規作成ページのテスト' do
-		context '表示の確認' do
-			
+		context '表示の確認' do			
 		end
 	end
 end
