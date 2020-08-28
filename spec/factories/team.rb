@@ -4,5 +4,6 @@ FactoryBot.define do
     team_name { Faker::Lorem.characters(number:10) }
     applicant { Faker::Lorem.characters(number:1) }
     stance { Faker::Lorem.characters(number:10) }
+    information { Faker::Lorem.characters(number:10) }
   end
 end
