@@ -7,7 +7,7 @@ describe "チームのテスト" do
 	let! (:team2){create(:team, sport_id: sport.id,prefecture_id: prefecture.id)}
 	let! (:user){create(:user)}
 	let! (:user2){create(:user)}
-	let! (:applicant){create(:applicant, user_id: user.id, team_id: team.id)}
+	let! (:applicant){create(:applicant, user_id: user2.id, team_id: team.id)}
 	let! (:team_member){create(:team_member,user_id: user.id, team_id: team.id)}
 	let! (:team_comment_room){create(:team_comment_room,team_id: team.id)}
 	let! (:team_comment_room2){create(:team_comment_room,team_id: team2.id)}
@@ -222,5 +222,59 @@ describe "チームのテスト" do
 			end
 		end
 	end
-	describe
+	describe 'チーム加入申請者一覧ページのテスト' do
+		before do
+			visit "/teams/#{team.id}/applicants"
+		end
+		context '表示の確認' do
+			it 'タイトルが正しく表示される' do
+				expect(page).to have_content "チーム加入申請者一覧"
+			end
+			it 'チーム加入申請者の年齢、性別、名前が表示される' do
+				expect(page).to have_content applicant.user.age
+				expect(page).to have_content applicant.user.sex
+				expect(page).to have_content applicant.user.name
+			end
+			it 'チーム加入許可 ボタンが表示される' do
+				expect(page).to have_link "チーム加入許可", href: "/teams/#{applicant.team.id}/applicants/#{applicant.id}"
+			end
+			it 'チーム加入拒否 ボタンが表示される' do
+				expect(page).to have_link "チーム加入拒否", href: "/teams/#{applicant.team.id}/applicants/#{applicant.id}"
+			end
+			it 'チーム詳細に戻る ボタンが表示される' do
+				expect(page).to have_link "チーム詳細に戻る", href: team_path(team)
+			end
+		end
+		context 'チーム加入のテスト' do
+			it 'チーム加入許可に成功する' do
+				click_on "チーム加入許可"
+				expect(page).to have_content "#{applicant.user.name}さんがチームに加入しました！"
+			end
+			it 'チーム加入拒否に成功する' do
+				click_on "チーム加入拒否" 
+				expect(page).to have_content "チーム加入を取り消しました。"
+			end
+		end
+	end
+	describe 'チームメンバー一覧のテスト' do
+		before do
+			visit "/teams/#{team.id}/team_members"
+		end
+		context '表示の確認' do
+			it 'タイトルが正しく表示される' do
+				expect(page).to have_content "#{team.team_name}のメンバー一覧"
+			end
+			it 'チームメンバーの年齢、性別、名前が表示される' do
+				expect(page).to have_content team_member.user.age
+				expect(page).to have_content team_member.user.sex
+				expect(page).to have_content team_member.user.name
+			end
+			it 'ユーザー詳細へのリンク先が正しい' do
+				expect(page).to have_link href: user_path(team_member.user.id)
+			end
+			it 'チーム詳細へ戻る ボタンが表示される' do
+				expect(page).to have_link href: team_path(team)
+			end
+		end
+	end
 end
